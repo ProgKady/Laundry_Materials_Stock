@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane id="AnchorPane" prefHeight="908.0" prefWidth="1310.0" stylesheets="@../../../cascade/style/sheets/cupertino-light.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.kadysoft.kady.ChemicalAudit_WindowController">
+   <children>
+      <BorderPane layoutX="2.0" prefHeight="908.0" prefWidth="1310.0">
+         <top>
+            <MenuBar BorderPane.alignment="CENTER">
+              <menus>
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                    <MenuItem fx:id="getallaudit" mnemonicParsing="false" onAction="#getallauditaction" text="Get All Audit" />
+                        <MenuItem mnemonicParsing="false" text="Font Size">
+                           <graphic>
+                              <Spinner fx:id="fontsize" editable="true" onKeyReleased="#fontsizerelaction" onMouseClicked="#fontsizeaction" />
+                           </graphic>
+                        </MenuItem>
+                        <MenuItem fx:id="print" mnemonicParsing="false" onAction="#printaction" text="Print" />
+                        <MenuItem fx:id="exporttoexcel" mnemonicParsing="false" onAction="#exporttoexcelaction" text="Export To Excel" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+         </top>
+         <center>
+            <Pane prefHeight="690.0" prefWidth="1310.0" BorderPane.alignment="CENTER">
+               <children>
+                  <TableView fx:id="datatable" layoutX="14.0" layoutY="14.0" prefHeight="842.0" prefWidth="1283.0" style="-fx-font-size: 9; -fx-font-weight: bold; -fx-text-alignment: center;" tableMenuButtonVisible="true" />
+               </children>
+            </Pane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

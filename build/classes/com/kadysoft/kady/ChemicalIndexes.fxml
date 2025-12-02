@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXToggleButton?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane id="AnchorPane" prefHeight="840.0" prefWidth="1326.0" stylesheets="@../../../cascade/style/sheets/primer-dark.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.kadysoft.kady.ChemicalIndexesController">
+   <children>
+      <BorderPane prefHeight="840.0" prefWidth="1326.0">
+         <top>
+            <MenuBar BorderPane.alignment="CENTER">
+              <menus>
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                    <MenuItem fx:id="loadindexes" mnemonicParsing="false" onAction="#loadindexesaction" text="Load Indexes" />
+                        <MenuItem fx:id="addnewindex" mnemonicParsing="false" onAction="#addnewindexaction" text="Add New Index" />
+                        <MenuItem fx:id="updateitemprice" mnemonicParsing="false" onAction="#updateitempriceaction" text="Update Item Price" />
+                        <MenuItem fx:id="exporttoexcel" mnemonicParsing="false" onAction="#exporttoexcelaction" text="Export To Excel" />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <SeparatorMenuItem mnemonicParsing="false">
+                           <content>
+                              <JFXToggleButton fx:id="openhack" onAction="#openhackaction" text="Open Hack" />
+                           </content>
+                        </SeparatorMenuItem>
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem fx:id="modifyindex" disable="true" mnemonicParsing="false" onAction="#modifyindexaction" style="-fx-background-color: red; -fx-font-weight: bold;" text="Modify Existing Index (Hack The Indexes) Use At Your Own Risk." />
+                        <MenuItem fx:id="deleteindex" disable="true" mnemonicParsing="false" onAction="#deleteindexaction" style="-fx-background-color: red; -fx-font-weight: bold;" text="Delete An Index (Hack The Indexes) Use At Your Own Risk. " />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+         </top>
+         <center>
+            <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <TableView fx:id="table" layoutX="13.0" layoutY="14.0" onMouseClicked="#tableaction" prefHeight="681.0" prefWidth="1301.0" tableMenuButtonVisible="true" />
+                  <Pane fx:id="addpane" layoutX="14.0" layoutY="703.0" prefHeight="83.0" prefWidth="1299.0" visible="false">
+                     <children>
+                        <JFXTextField fx:id="addcode" alignment="CENTER" labelFloat="true" layoutX="14.0" layoutY="24.0" prefHeight="36.0" prefWidth="81.0" promptText="Code" />
+                        <JFXTextField fx:id="addsupplier" alignment="CENTER" labelFloat="true" layoutX="117.0" layoutY="24.0" prefHeight="36.0" prefWidth="156.0" promptText="Supplier" />
+                        <JFXTextField fx:id="addmaterialname" alignment="CENTER" labelFloat="true" layoutX="298.0" layoutY="24.0" prefHeight="36.0" prefWidth="407.0" promptText="Chemical Name" />
+                        <JFXTextField fx:id="addunit" alignment="CENTER" labelFloat="true" layoutX="726.0" layoutY="24.0" prefHeight="36.0" prefWidth="143.0" promptText="Type" />
+                        <JFXTextField fx:id="addunitprice" alignment="CENTER" labelFloat="true" layoutX="891.0" layoutY="24.0" prefHeight="36.0" prefWidth="138.0" promptText="Unit Price" />
+                        <JFXButton fx:id="addindex" buttonType="RAISED" layoutX="1126.0" layoutY="24.0" onAction="#addindexaction" text="Add Index" />
+                     </children>
+                  </Pane>
+                  <Pane fx:id="modifydeletepane" layoutX="14.0" layoutY="703.0" prefHeight="83.0" prefWidth="1299.0" visible="false">
+                     <children>
+                        <JFXTextField fx:id="rownumber" alignment="CENTER" editable="false" labelFloat="true" layoutX="106.0" layoutY="24.0" prefHeight="36.0" prefWidth="130.0" promptText="Row Number" />
+                        <JFXTextField fx:id="columnname" alignment="CENTER" editable="false" labelFloat="true" layoutX="264.0" layoutY="24.0" prefHeight="36.0" prefWidth="184.0" promptText="Column Name" />
+                        <JFXTextField fx:id="celldata" alignment="CENTER" labelFloat="true" layoutX="473.0" layoutY="24.0" prefHeight="36.0" prefWidth="470.0" promptText="Cell Data" />
+                        <JFXButton fx:id="update" buttonType="RAISED" layoutX="971.0" layoutY="24.0" onAction="#updateaction" prefHeight="36.0" prefWidth="100.0" style="-fx-background-color: chocolate;" text="Update" />
+                        <JFXButton fx:id="delete" buttonType="RAISED" layoutX="971.0" layoutY="24.0" onAction="#deleteaction" prefHeight="36.0" prefWidth="100.0" style="-fx-background-color: tomato;" text="Delete" />
+                     </children>
+                  </Pane>
+                  <Pane fx:id="updatepricepane" layoutX="14.0" layoutY="701.0" prefHeight="88.0" prefWidth="1299.0" visible="false">
+                     <children>
+                        <JFXTextField fx:id="itemcode" alignment="CENTER" labelFloat="true" layoutX="140.0" layoutY="26.0" onKeyReleased="#itemcoderel" prefHeight="36.0" prefWidth="118.0" promptText="Item Code" />
+                        <JFXTextField fx:id="itemname" alignment="CENTER" editable="false" labelFloat="true" layoutX="328.0" layoutY="26.0" prefHeight="36.0" prefWidth="416.0" promptText="Item Name" />
+                        <JFXTextField fx:id="itemprice" alignment="CENTER" labelFloat="true" layoutX="814.0" layoutY="26.0" prefHeight="36.0" prefWidth="216.0" promptText="Item Price" />
+                        <JFXButton fx:id="updatepricebtn" buttonType="RAISED" layoutX="1105.0" layoutY="26.0" onAction="#updatepricebtnaction" prefHeight="36.0" prefWidth="92.0" style="-fx-background-color: green;" text="Update" />
+                     </children>
+                  </Pane>
+               </children>
+            </Pane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

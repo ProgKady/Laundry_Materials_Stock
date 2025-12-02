@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="85.0" prefWidth="601.0" stylesheets="@cupertino-dark.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.kadysoft.kady.Critical_MATController">
+   <children>
+      <JFXButton fx:id="critical" buttonType="RAISED" layoutX="489.0" layoutY="29.0" onAction="#criticalaction" style="-fx-background-radius: 3em; -fx-background-color: #0052CC; -fx-text-fill: white;" text="Add Critical">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </JFXButton>
+      <JFXTextField fx:id="code" layoutX="14.0" layoutY="23.0" onKeyReleased="#codeaction" prefHeight="41.0" prefWidth="115.0" promptText="Like 1" style="-fx-background-radius: 3em;">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="chemical" layoutX="140.0" layoutY="23.0" prefHeight="41.0" prefWidth="210.0" promptText="Like STONE" style="-fx-background-radius: 3em;">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="value" layoutX="360.0" layoutY="23.0" prefHeight="41.0" prefWidth="115.0" promptText="Like 100" style="-fx-background-radius: 3em;">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </JFXTextField>
+   </children>
+</AnchorPane>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="512.0" prefWidth="659.0" stylesheets="@primer-dark.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.kadysoft.kady.WelcomeController">
+   <children>
+      <Label alignment="CENTER" layoutX="99.0" layoutY="78.0" style="-fx-font-size: 22; -fx-font-weight: bold;" text="Welcome To T&amp;C Laundry Material Manager">
+         <effect>
+            <DropShadow spread="1.0" />
+         </effect>
+      </Label>
+      <JFXButton fx:id="laundrybtn" buttonType="RAISED" layoutX="176.0" layoutY="184.0" onAction="#laundrybtnaction" prefHeight="37.0" prefWidth="308.0" style="-fx-font-weight: bold; -fx-background-radius: 3em; -fx-font-size: 16; -fx-background-color: #172B4D;" text="Laundry Material Stock">
+         <effect>
+            <DropShadow />
+         </effect></JFXButton>
+      <JFXButton fx:id="chemicalbtn" buttonType="RAISED" layoutX="176.0" layoutY="299.0" onAction="#chemicalbtnaction" prefHeight="37.0" prefWidth="308.0" style="-fx-font-weight: bold; -fx-background-radius: 3em; -fx-font-size: 16; -fx-background-color: #172B4D;" text="Chemicals Material Stock">
+         <effect>
+            <DropShadow />
+         </effect></JFXButton>
+      <JFXButton fx:id="exitbtn" buttonType="RAISED" layoutX="293.0" layoutY="410.0" onAction="#exitbtnaction" onMouseEntered="#exitaction" prefHeight="36.0" prefWidth="74.0" style="-fx-background-color: brown; -fx-font-weight: bold; -fx-background-radius: 3em; -fx-font-size: 15;" text="Exit">
+         <effect>
+            <DropShadow />
+         </effect></JFXButton>
+   </children>
+</AnchorPane>

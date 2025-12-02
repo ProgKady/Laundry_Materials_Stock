@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXToggleButton?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane id="AnchorPane" prefHeight="922.0" prefWidth="1438.0" stylesheets="@../../../cascade/style/sheets/primer-dark.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.kadysoft.kady.ChemicalMainWindowController">
+   <children>
+      <BorderPane prefHeight="922.0" prefWidth="1438.0">
+         <top>
+            <MenuBar BorderPane.alignment="CENTER">
+              <menus>
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                        <MenuItem fx:id="addnewitemmenuitem" mnemonicParsing="false" onAction="#addnewitemmenuitemaction" text="Add new item to stock (Use With No Index Too)." />
+                        <MenuItem fx:id="inputitem" mnemonicParsing="false" onAction="#inputitemaction" text="Item Input" visible="false" />
+                        <MenuItem fx:id="outputitem" mnemonicParsing="false" onAction="#outputitemaction" text="Overwrite Stock Item" />
+                        <MenuItem fx:id="getallaudititem" mnemonicParsing="false" onAction="#getallaudititemaction" text="Get all Stock" />
+                        <MenuItem fx:id="auditmenuitem" mnemonicParsing="false" onAction="#auditmenuitemaction" text="Audit" />
+                    <MenuItem fx:id="index" mnemonicParsing="false" onAction="#indexaction" text="Chemicals Indexes" />
+                        <MenuItem fx:id="reportaspdf" mnemonicParsing="false" onAction="#reportaspdfaction" text="Report All As PDF" />
+                        <MenuItem mnemonicParsing="false" onAction="#sumaction" text="Total Consumption" />
+                        <MenuItem fx:id="exporttoexcel" mnemonicParsing="false" onAction="#exporttoexcelaction" text="Export To Excel" />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <SeparatorMenuItem mnemonicParsing="false">
+                           <content>
+                              <JFXToggleButton fx:id="openhack" onAction="#openhackaction" text="Open Hack" />
+                           </content>
+                        </SeparatorMenuItem>
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem fx:id="updateiteminfo" disable="true" mnemonicParsing="false" onAction="#updateiteminfoaction" style="-fx-background-color: red; -fx-font-weight: bold;" text="Update item info (Hack The Stock) Use At Your Own Risk." />
+                        <MenuItem fx:id="deleteiteminfo" disable="true" mnemonicParsing="false" onAction="#deleteiteminfoaction" style="-fx-background-color: red; -fx-font-weight: bold;" text="Delete an item (Hack The Stock) Use At Your Own Risk." />
+                        <MenuItem fx:id="logout" mnemonicParsing="false" onAction="#logoutaction" text="Log Out" />
+                        <MenuItem fx:id="undowrong" disable="true" mnemonicParsing="false" onAction="#undowrongaction" text="Undo Wrong Operation" />
+                        <MenuItem fx:id="leave" mnemonicParsing="false" onAction="#leaveaction" text="Leave" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+         </top>
+         <center>
+            <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <BorderPane prefHeight="885.0" prefWidth="1438.0">
+                     <center>
+                        <Pane prefHeight="796.0" prefWidth="1324.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <TableView fx:id="table" layoutX="14.0" layoutY="14.0" onMouseClicked="#tableaction" prefHeight="755.0" prefWidth="1415.0" tableMenuButtonVisible="true" />
+                              <Pane fx:id="newitempane" layoutX="14.0" layoutY="776.0" prefHeight="99.0" prefWidth="1414.0" visible="false">
+                                 <children>
+                                    <JFXTextField fx:id="newitemdate" alignment="CENTER" labelFloat="true" layoutX="20.0" layoutY="32.0" prefHeight="36.0" prefWidth="124.0" promptText="Date" />
+                                    <JFXTextField fx:id="newitemcode" alignment="CENTER" labelFloat="true" layoutX="160.0" layoutY="32.0" onKeyPressed="#one" onKeyReleased="#addcodekeyaction" prefHeight="36.0" prefWidth="70.0" promptText="Code" />
+                                    <JFXTextField fx:id="newitemsupplier" alignment="CENTER" labelFloat="true" layoutX="247.0" layoutY="32.0" onKeyPressed="#two" prefHeight="36.0" prefWidth="115.0" promptText="Supplier" />
+                                    <JFXTextField fx:id="newitemmaterialname" alignment="CENTER" labelFloat="true" layoutX="382.0" layoutY="32.0" onKeyPressed="#three" prefHeight="36.0" prefWidth="204.0" promptText="Chemical Name" />
+                                    <JFXTextField fx:id="newitemunit" alignment="CENTER" labelFloat="true" layoutX="601.0" layoutY="32.0" onKeyPressed="#four" prefHeight="36.0" prefWidth="111.0" promptText="Type" />
+                                    <JFXTextField fx:id="newitemunitprice" alignment="CENTER" labelFloat="true" layoutX="728.0" layoutY="32.0" onKeyPressed="#five" prefHeight="36.0" prefWidth="116.0" promptText="Unit Price" />
+                                    <JFXTextField fx:id="newitemstock" alignment="CENTER" labelFloat="true" layoutX="861.0" layoutY="32.0" onKeyPressed="#six" onKeyReleased="#totalpricekeyaction" prefHeight="36.0" prefWidth="117.0" promptText="Stock" />
+                                    <JFXTextField fx:id="newitemtotalprice" alignment="CENTER" labelFloat="true" layoutX="994.0" layoutY="32.0" onKeyPressed="#seven" prefHeight="36.0" prefWidth="140.0" promptText="Total Price" />
+                                    <JFXButton fx:id="addnewitem" buttonType="RAISED" layoutX="1300.0" layoutY="32.0" onAction="#addnewitemaction" prefHeight="36.0" prefWidth="100.0" style="-fx-background-color: green;" text="Add Item" />
+                                    <JFXCheckBox fx:id="addtoindexcheckbox" alignment="CENTER" layoutX="1138.0" layoutY="39.0" prefHeight="22.0" prefWidth="143.0" text="Add To Index">
+                                       <effect>
+                                          <DropShadow />
+                                       </effect>
+                                    </JFXCheckBox>
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="iteminputpane" layoutX="14.0" layoutY="775.0" prefHeight="102.0" prefWidth="1421.0" visible="false">
+                                 <children>
+                                    <JFXTextField fx:id="inputdate" alignment="CENTER" labelFloat="true" layoutX="4.0" layoutY="32.0" prefHeight="36.0" prefWidth="99.0" promptText="Date" />
+                                    <JFXTextField fx:id="inputcode" alignment="CENTER" labelFloat="true" layoutX="106.0" layoutY="32.0" onKeyReleased="#inputcodekeyaction" prefHeight="36.0" prefWidth="56.0" promptText="Code" />
+                                    <JFXTextField fx:id="inputmaterialname" alignment="CENTER" editable="false" labelFloat="true" layoutX="167.0" layoutY="32.0" prefHeight="36.0" prefWidth="109.0" promptText="Chemical Name" />
+                                    <JFXTextField fx:id="inputstock" alignment="CENTER" editable="false" labelFloat="true" layoutX="280.0" layoutY="32.0" prefHeight="36.0" prefWidth="59.0" promptText="Stock" />
+                                    <JFXTextField fx:id="inputprice" alignment="CENTER" editable="false" labelFloat="true" layoutX="342.0" layoutY="32.0" prefHeight="36.0" prefWidth="58.0" promptText="Price" />
+                                    <JFXTextField fx:id="inputtotalprice" alignment="CENTER" editable="false" labelFloat="true" layoutX="1096.0" layoutY="32.0" prefHeight="36.0" prefWidth="94.0" promptText="Total Price" />
+                                    <JFXTextField fx:id="inputquantity" alignment="CENTER" labelFloat="true" layoutX="848.0" layoutY="32.0" onKeyReleased="#quantityrel" prefHeight="36.0" prefWidth="76.0" promptText="Quantity" />
+                                    <JFXButton fx:id="inputbtn" buttonType="RAISED" layoutX="1185.0" layoutY="32.0" onAction="#inputbtnaction" prefHeight="36.0" prefWidth="85.0" style="-fx-background-color: pink;" text="Input" visible="false" />
+                                    <JFXButton fx:id="outputbtn" buttonType="RAISED" disable="true" layoutX="1355.0" layoutY="33.0" onAction="#outputbtnaction" prefHeight="36.0" prefWidth="59.0" style="-fx-background-color: tomato;" text="SET" />
+                                    <ComboBox fx:id="statusbox" layoutX="630.0" layoutY="32.0" prefHeight="36.0" prefWidth="101.0" promptText="Status" />
+                                    <ComboBox fx:id="sectionbox" editable="true" layoutX="736.0" layoutY="32.0" onShowing="#sectionaction" prefHeight="36.0" prefWidth="108.0" promptText="Section" />
+                                    <JFXTextField fx:id="newstock" alignment="CENTER" editable="false" labelFloat="true" layoutX="930.0" layoutY="32.0" onKeyReleased="#quantityrel" prefHeight="36.0" prefWidth="85.0" promptText="New Stock" />
+                                    <JFXTextField fx:id="inputsupplier" alignment="CENTER" editable="false" labelFloat="true" layoutX="407.0" layoutY="32.0" prefHeight="36.0" prefWidth="71.0" promptText="Supplier" />
+                                    <JFXTextField fx:id="inputunit" alignment="CENTER" editable="false" labelFloat="true" layoutX="485.0" layoutY="32.0" prefHeight="36.0" prefWidth="53.0" promptText="Type" />
+                                    <JFXTextField fx:id="oldprice" alignment="CENTER" editable="false" labelFloat="true" layoutX="1196.0" layoutY="32.0" prefHeight="36.0" prefWidth="96.0" promptText="Old Price" />
+                                    <Hyperlink fx:id="addconsumption" alignment="CENTER" layoutX="1300.0" layoutY="36.0" onAction="#addconsumptionaction" prefHeight="28.0" prefWidth="48.0" style="-fx-background-color: green; -fx-background-radius: 3em;" text="Add">
+                                       <effect>
+                                          <DropShadow />
+                                       </effect></Hyperlink>
+                                    <JFXTextField fx:id="oldcon" alignment="CENTER" editable="false" labelFloat="true" layoutX="1115.0" layoutY="68.0" onMouseClicked="#oldconaction" prefHeight="23.0" prefWidth="75.0" promptText="Old Con" text="0" visible="false" />
+                                    <JFXTextField fx:id="qp" alignment="CENTER" editable="false" labelFloat="true" layoutX="1022.0" layoutY="33.0" prefHeight="36.0" prefWidth="69.0" promptText="Q . P" />
+                                    <JFXTextField fx:id="tp" alignment="CENTER" editable="false" labelFloat="true" layoutX="546.0" layoutY="33.0" prefHeight="36.0" prefWidth="76.0" promptText="T . P" />
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="updateanddeletepane" layoutX="14.0" layoutY="775.0" prefHeight="103.0" prefWidth="1412.0" visible="false">
+                                 <children>
+                                    <JFXTextField fx:id="rownumber" alignment="CENTER" editable="false" labelFloat="true" layoutX="259.0" layoutY="32.0" prefHeight="36.0" prefWidth="121.0" promptText="Row Number" />
+                                    <JFXTextField fx:id="columnname" alignment="CENTER" editable="false" labelFloat="true" layoutX="407.0" layoutY="32.0" prefHeight="36.0" prefWidth="135.0" promptText="Column Name" />
+                                    <JFXTextField fx:id="celldata" alignment="CENTER" labelFloat="true" layoutX="568.0" layoutY="32.0" prefHeight="36.0" prefWidth="328.0" promptText="Cell Data" />
+                                    <JFXButton fx:id="updatebtn" buttonType="RAISED" layoutX="919.0" layoutY="32.0" onAction="#updatebtnaction" prefHeight="36.0" prefWidth="85.0" style="-fx-background-color: green;" text="Update" />
+                                    <JFXButton fx:id="deletebtn" buttonType="RAISED" layoutX="919.0" layoutY="32.0" onAction="#deletebtnaction" prefHeight="36.0" prefWidth="85.0" style="-fx-background-color: tomato;" text="Delete" />
+                                 </children>
+                              </Pane>
+                           </children>
+                        </Pane>
+                     </center>
+                  </BorderPane>
+               </children></Pane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

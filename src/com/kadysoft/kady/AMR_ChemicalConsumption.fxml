@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<GridPane id="AnchorPane" alignment="CENTER" gridLinesVisible="true" prefHeight="772.0" prefWidth="1312.0" stylesheets="@primer-dark.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.kadysoft.kady.AMR_ChemicalConsumptionController">
+   <children>
+      <BorderPane layoutX="2.0" prefHeight="693.0" prefWidth="1307.0" GridPane.rowIndex="1">
+         <center>
+            <Pane fx:id="pany" prefHeight="609.0" prefWidth="1310.0" BorderPane.alignment="CENTER">
+               <children>
+                  <TableView fx:id="datatable" layoutX="14.0" layoutY="14.0" prefHeight="662.0" prefWidth="1283.0" style="-fx-font-size: 12; -fx-font-weight: bold; -fx-text-alignment: center;" tableMenuButtonVisible="true" />
+                  <Hyperlink fx:id="con" alignment="CENTER" layoutX="282.0" layoutY="685.0" onMouseClicked="#conaction" prefHeight="28.0" prefWidth="265.0" style="-fx-font-weight: bold;" text="Click to get total consumption" />
+                  <Hyperlink fx:id="con1" alignment="CENTER" layoutX="282.0" layoutY="709.0" onMouseClicked="#con1action" prefHeight="24.0" prefWidth="265.0" style="-fx-font-weight: bold;" text="Click to get total consumption" visible="false" />
+                  <Hyperlink fx:id="quaa" layoutX="25.0" layoutY="685.0" onMouseClicked="#quaaaction" style="-fx-font-weight: bold;" text="Click to get total quantities" />
+                  <Hyperlink fx:id="quaa1" layoutX="25.0" layoutY="705.0" onMouseClicked="#quaa1action" style="-fx-font-weight: bold;" text="Click to get total quantities" visible="false" />
+               </children>
+            </Pane>
+         </center>
+      </BorderPane>
+      <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+         <children>
+            <MenuBar style="-fx-font-weight: bold;">
+              <menus>
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                    <MenuItem fx:id="getallaudit" mnemonicParsing="false" onAction="#getallauditaction" text="Get All Consumption" />
+                        <MenuItem fx:id="consum" mnemonicParsing="false" onAction="#consumaction" text="Full Consumption Report" />
+                        <MenuItem mnemonicParsing="false" text="Font Size">
+                           <graphic>
+                              <Spinner fx:id="fontsize" editable="true" onKeyReleased="#fontsizerelaction" onMouseClicked="#fontsizeaction" />
+                           </graphic>
+                        </MenuItem>
+                        <MenuItem fx:id="print" mnemonicParsing="false" onAction="#printaction" text="Print" />
+                        <MenuItem fx:id="exporttoexcel" mnemonicParsing="false" onAction="#exporttoexcelaction" text="Export To Excel" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+         </children>
+      </VBox>
+   </children>
+   <columnConstraints>
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints maxHeight="122.0" minHeight="10.0" prefHeight="29.0" />
+      <RowConstraints maxHeight="753.0" minHeight="650.0" prefHeight="743.0" />
+   </rowConstraints>
+</GridPane>

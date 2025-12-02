@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXListView?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="878.0" prefWidth="1270.0" stylesheets="@primer-dark.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.kadysoft.kady.PR_MATController">
+   <children>
+      <TableView fx:id="table" layoutX="14.0" layoutY="14.0" onMouseClicked="#tableaction" prefHeight="756.0" prefWidth="1240.0" style="-fx-font-weight: bold;" />
+      <JFXListView fx:id="item" layoutX="88.0" layoutY="580.0" prefHeight="250.0" prefWidth="100.0" visible="false" />
+      <JFXListView fx:id="stk" layoutX="207.0" layoutY="580.0" prefHeight="250.0" prefWidth="100.0" visible="false" />
+      <JFXTextField fx:id="id" alignment="CENTER" labelFloat="true" layoutX="14.0" layoutY="794.0" prefHeight="36.0" prefWidth="19.0" style="-fx-font-weight: bold; -fx-background-radius: 3em;" visible="false" />
+      <JFXTextField fx:id="code" alignment="CENTER" labelFloat="true" layoutX="15.0" layoutY="794.0" onKeyReleased="#codeaction" prefHeight="36.0" prefWidth="100.0" promptText="Code" style="-fx-font-weight: bold; -fx-background-radius: 3em;" />
+      <JFXTextField fx:id="itemname" alignment="CENTER" labelFloat="true" layoutX="130.0" layoutY="794.0" prefHeight="36.0" prefWidth="263.0" promptText="Item Name" style="-fx-font-weight: bold; -fx-background-radius: 3em;" />
+      <JFXTextField fx:id="stock" alignment="CENTER" labelFloat="true" layoutX="518.0" layoutY="794.0" prefHeight="36.0" prefWidth="100.0" promptText="Stock" style="-fx-font-weight: bold; -fx-background-radius: 3em;" />
+      <JFXTextField fx:id="description" alignment="CENTER" labelFloat="true" layoutX="634.0" layoutY="794.0" prefHeight="36.0" prefWidth="257.0" promptText="Description" style="-fx-font-weight: bold; -fx-background-radius: 3em;" text="صف العنصر باللغة العربية" />
+      <JFXTextField fx:id="quantity" alignment="CENTER" labelFloat="true" layoutX="908.0" layoutY="794.0" prefHeight="36.0" prefWidth="100.0" promptText="Quantity" style="-fx-font-weight: bold; -fx-background-radius: 3em;" text="0" />
+      <JFXButton fx:id="addbtn" buttonType="RAISED" layoutX="1027.0" layoutY="794.0" onAction="#addbtnaction" style="-fx-background-radius: 3em; -fx-background-color: green; -fx-font-weight: bold;" text="Add" />
+      <JFXButton fx:id="clearbtn" buttonType="RAISED" layoutX="1093.0" layoutY="794.0" onAction="#clearbtnaction" style="-fx-background-radius: 3em; -fx-background-color: tomato; -fx-font-weight: bold;" text="Clear" />
+      <JFXButton fx:id="createprbtn" buttonType="RAISED" layoutX="1164.0" layoutY="794.0" onAction="#createprbtnaction" prefHeight="36.0" prefWidth="90.0" style="-fx-background-radius: 3em; -fx-background-color: #172B4D; -fx-font-weight: bold;" text="Create PR" />
+      <JFXTextArea fx:id="rowarea" visible="false" />
+      <JFXListView fx:id="quant" layoutX="600.0" layoutY="832.0" prefHeight="100.0" prefWidth="70.0" visible="false" />
+      <JFXListView fx:id="desc" layoutX="483.0" layoutY="836.0" prefHeight="91.0" prefWidth="70.0" visible="false" />
+      <JFXTextField fx:id="unit" alignment="CENTER" labelFloat="true" layoutX="405.0" layoutY="794.0" prefHeight="36.0" prefWidth="100.0" promptText="Unit" style="-fx-font-weight: bold; -fx-background-radius: 3em;" />
+      <JFXListView fx:id="unittt" layoutX="354.0" layoutY="858.0" prefHeight="76.0" prefWidth="78.0" visible="false" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch4jConfig>
+  <dontWrapJar>false</dontWrapJar>
+  <headerType>gui</headerType>
+  <jar>C:\Users\Ahmed.ElKady\Documents\NetBeansProjects\Laundry Material Stock\dist\Laundry Material Stock.jar</jar>
+  <outfile>C:\Users\Ahmed.ElKady\Documents\NetBeansProjects\Laundry Material Stock\dist\Laundry.exe</outfile>
+  <errTitle>Java Not Found - Kadysoft Ltd</errTitle>
+  <cmdLine></cmdLine>
+  <chdir>.</chdir>
+  <priority>normal</priority>
+  <downloadUrl>http://java.com/download</downloadUrl>
+  <supportUrl>Call Me At : +201555266002</supportUrl>
+  <stayAlive>true</stayAlive>
+  <restartOnCrash>false</restartOnCrash>
+  <manifest></manifest>
+  <icon>C:\Users\Ahmed.ElKady\Documents\NetBeansProjects\Laundry Material Stock\cutter.ico</icon>
+  <jre>
+    <path>Java</path>
+    <bundledJre64Bit>false</bundledJre64Bit>
+    <bundledJreAsFallback>false</bundledJreAsFallback>
+    <minVersion></minVersion>
+    <maxVersion></maxVersion>
+    <jdkPreference>jdkOnly</jdkPreference>
+    <runtimeBits>64</runtimeBits>
+  </jre>
+  <versionInfo>
+    <fileVersion>1.0.0.0</fileVersion>
+    <txtFileVersion>1.0.0.ks</txtFileVersion>
+    <fileDescription>Recipe Calculator for calculating time,water and chemicals for any washing recipe.</fileDescription>
+    <copyright>All Rights Reserved @ Kadysoft Ltd. 2017 - 2024</copyright>
+    <productVersion>1.0.0.0</productVersion>
+    <txtProductVersion>1.0.0.ks</txtProductVersion>
+    <productName>RecipeCalculator</productName>
+    <companyName>Kadysoft Ltd</companyName>
+    <internalName>RecipeCalculator</internalName>
+    <originalFilename>RecipeCalculator.exe</originalFilename>
+    <trademarks>Kadysoft Ltd.</trademarks>
+    <language>ENGLISH_US</language>
+  </versionInfo>
+</launch4jConfig>
