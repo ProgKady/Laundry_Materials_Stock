@@ -697,6 +697,67 @@ public class AMR_ChemicalMainWindowController implements Initializable {
     
     
     
+    
+    
+    
+    
+        @FXML
+    void managepraction (ActionEvent evt) throws IOException {
+        
+        
+    
+        
+        
+      Stage stg = new Stage();
+      Parent root = (Parent)FXMLLoader.load(this.getClass().getResource("ManagePR.fxml"));
+      Scene sce = new Scene(root);
+      stg.setTitle("Purchasing Request Manager");
+      stg.centerOnScreen();
+      stg.setResizable(false);
+      stg.setScene(sce);
+      stg.show(); 
+        
+        
+    }
+    
+     @FXML
+    void matdisaction (ActionEvent evt) throws IOException {
+        
+        
+      Stage stg = new Stage();
+      Parent root = (Parent)FXMLLoader.load(this.getClass().getResource("Materials_Disbursed.fxml"));
+      Scene sce = new Scene(root);
+      stg.setTitle("Materials Disbursed");
+      stg.centerOnScreen();
+      stg.setResizable(false);
+      stg.setScene(sce);
+      stg.show(); 
+        
+        
+        
+    }
+    
+    
+    
+     @FXML
+    void workersmataction (ActionEvent evt) throws IOException {
+        
+        
+            Stage stg = new Stage();
+            Parent root = FXMLLoader.<Parent>load(getClass().getResource("Workers_Materials.fxml"));
+            Scene sce = new Scene(root);
+            stg.setTitle("Workers Materials.");
+            stg.centerOnScreen();
+            stg.setResizable(false);
+            stg.centerOnScreen();
+            stg.setScene(sce);
+            stg.centerOnScreen();
+            stg.show();
+       
+    }
+    
+    
+    
     @FXML
     void createpraction (ActionEvent evt) throws IOException {
         
@@ -704,7 +765,7 @@ public class AMR_ChemicalMainWindowController implements Initializable {
             Stage stg = new Stage();
             Parent root = FXMLLoader.<Parent>load(getClass().getResource("PR_CHE.fxml"));
             Scene sce = new Scene(root);
-            stg.setTitle("Create PR For Chemicals.");
+            stg.setTitle("Create PR For Materials.");
             stg.centerOnScreen();
             stg.setResizable(false);
             //stg.setAlwaysOnTop(true);

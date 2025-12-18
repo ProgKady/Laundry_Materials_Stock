@@ -180,7 +180,7 @@ public class PR_CHEController implements Initializable {
     String timeString = sdf.format(d);
     String value1 = timeString;
         
-        String source=""+drib+":\\KADINIO\\DATABASES\\Chemicals\\Material\\Stock\\Contents\\KADINIO.xlsx";
+        String source=""+drib+":\\KADINIO\\DATABASES\\Material\\Stock\\Contents\\KADINIO.xlsx";
         String destination=System.getProperty("user.home")+"\\Desktop\\Purchase_Request_Of_"+value1+".xlsx";
         String linet = "cmd /C copy /Y "+source+" "+destination;
         Process p = Runtime.getRuntime().exec(linet);

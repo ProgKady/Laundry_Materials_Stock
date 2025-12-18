@@ -42,6 +42,10 @@
                         <MenuItem fx:id="frisca" mnemonicParsing="false" onAction="#friscaaction" text="Add Shipment" />
                         <SeparatorMenuItem mnemonicParsing="false" />
                         <MenuItem fx:id="createpr" mnemonicParsing="false" onAction="#createpraction" text="Create PR" />
+                        <MenuItem mnemonicParsing="false" onAction="#managepraction" text="Manage PR" />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem mnemonicParsing="false" onAction="#workersmataction" text="Workers Materials" />
+                        <MenuItem mnemonicParsing="false" onAction="#matdisaction" text="Materials Disbursed" />
                         <SeparatorMenuItem mnemonicParsing="false" />
                         <Menu mnemonicParsing="false" text="Get Total Of ...">
                            <items>

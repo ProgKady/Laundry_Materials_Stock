@@ -220,7 +220,7 @@ public class ChemicalLogIn_GUI_Controller implements Initializable {
         alo.setTitle(e.toString());
         alo.setResizable(false);
         alo.setHeaderText(e.toString());
-        alo.setContentText("Sorry we face a problem : Database Is Read-Only.\n\nPowered By Kadysoft Ltd - Ahmed Elkady.");
+        alo.setContentText(e.toString());
         DialogPane dialogPane = alo.getDialogPane();
         dialogPane.getStylesheets().add(
       getClass().getResource("primer-dark.css").toExternalForm());

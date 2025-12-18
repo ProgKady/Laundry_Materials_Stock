@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="Laundry Material Stock.jnlp">
+  <information>
+    <title>Laundry Material Stock</title>
+    <vendor>ahmed.elkady</vendor>
+    <description>null</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="lib\HikariCP-5.0.1.jar" size="161902" download="eager" />
+    <jar href="lib\activation-1.1.jar" size="62983" download="eager" />
+    <jar href="lib\activemq-core-5.7.0.jar" size="3963881" download="eager" />
+    <jar href="lib\activemq-protobuf-1.1.jar" size="147874" download="eager" />
+    <jar href="lib\ant-1.10.5.jar" size="2216652" download="eager" />
+    <jar href="lib\ant-launcher-1.10.5.jar" size="18827" download="eager" />
+    <jar href="lib\aopalliance-1.0.jar" size="4467" download="eager" />
+    <jar href="lib\aspose-cells-7.0.0.jar" size="4273376" download="eager" />
+    <jar href="lib\aws-java-sdk-core-1.11.827.jar" size="1013473" download="eager" />
+    <jar href="lib\aws-java-sdk-kms-1.11.827.jar" size="592236" download="eager" />
+    <jar href="lib\aws-java-sdk-s3-1.11.827.jar" size="1061044" download="eager" />
+    <jar href="lib\barbecue-1.5-beta1.jar" size="91079" download="eager" />
+    <jar href="lib\barcode4j.jar" size="256468" download="eager" />
+    <jar href="lib\base-shw-air-terminal-vertical-1.0.27.jar" size="9079734" download="eager" />
+    <jar href="lib\bcmail-jdk14-1.38.jar" size="192035" download="eager" />
+    <jar href="lib\bcmail-jdk14-138.jar" size="192035" download="eager" />
+    <jar href="lib\bcpkix-jdk15on-1.64.jar" size="878038" download="eager" />
+    <jar href="lib\bcprov-jdk14-1.38.jar" size="1551468" download="eager" />
+    <jar href="lib\bcprov-jdk14-138.jar" size="1551468" download="eager" />
+    <jar href="lib\bcprov-jdk15on-1.64.jar" size="4771726" download="eager" />
+    <jar href="lib\bctsp-jdk14-1.38.jar" size="22994" download="eager" />
+    <jar href="lib\bsh-2.0b5.jar" size="383846" download="eager" />
+    <jar href="lib\castor-core-1.4.1.jar" size="48080" download="eager" />
+    <jar href="lib\castor-xml-1.4.1.jar" size="910963" download="eager" />
+    <jar href="lib\checker-qual-3.5.0.jar" size="214381" download="eager" />
+    <jar href="lib\com.springsource.com.ctc.wstx-sources-3.2.7.jar" size="605713" download="eager" />
+    <jar href="lib\commons-beanutils-1.9.4.jar" size="246918" download="eager" />
+    <jar href="lib\commons-codec-1.10.jar" size="284184" download="eager" />
+    <jar href="lib\commons-collections-3.2.2.jar" size="588337" download="eager" />
+    <jar href="lib\commons-collections4-4.2.jar" size="752798" download="eager" />
+    <jar href="lib\commons-digester-2.1.jar" size="196768" download="eager" />
+    <jar href="lib\commons-io-2.8.0.jar" size="285424" download="eager" />
+    <jar href="lib\commons-lang3-3.4.jar" size="434678" download="eager" />
+    <jar href="lib\commons-logging-1.1.1.jar" size="60686" download="eager" />
+    <jar href="lib\commons-net-3.1.jar" size="273370" download="eager" />
+    <jar href="lib\commons-validator-1.6.jar" size="186077" download="eager" />
+    <jar href="lib\controlsfx-8.40.11.jar" size="985420" download="eager" />
+    <jar href="lib\core-2.3.0.jar" size="528506" download="eager" />
+    <jar href="lib\cron4j-2.2.5.jar" size="36227" download="eager" />
+    <jar href="lib\curvesapi-1.04.jar" size="98365" download="eager" />
+    <jar href="lib\diffutils-1.3.0.jar" size="34130" download="eager" />
+    <jar href="lib\dist.jar" size="9920989" download="eager" />
+    <jar href="lib\dom4j-1.6.jar" size="313359" download="eager" />
+    <jar href="lib\ecj-3.21.0.jar" size="2989263" download="eager" />
+    <jar href="lib\gembox-spreadsheet.jar" size="8108974" download="eager" />
+    <jar href="lib\geronimo-j2ee-management_1.1_spec-1.0.1.jar" size="20220" download="eager" />
+    <jar href="lib\geronimo-jms_1.1_spec-1.1.1.jar" size="32359" download="eager" />
+    <jar href="lib\harness-1.0.0.jar" size="6071" download="eager" />
+    <jar href="lib\hawtbuf-1.9.jar" size="50139" download="eager" />
+    <jar href="lib\hawtdispatch-1.11.jar" size="108734" download="eager" />
+    <jar href="lib\hawtdispatch-transport-1.11.jar" size="105315" download="eager" />
+    <jar href="lib\httpclient-4.5.1.jar" size="732765" download="eager" />
+    <jar href="lib\httpcore-4.4.3.jar" size="326594" download="eager" />
+    <jar href="lib\io-7.1.13.jar" size="811242" download="eager" />
+    <jar href="lib\io.github.java-diff-utils_4.8.0.v20221112-0806.jar" size="73684" download="eager" />
+    <jar href="lib\ion-java-1.0.2.jar" size="565410" download="eager" />
+    <jar href="lib\itext-2.1.7.jar" size="1130070" download="eager" />
+    <jar href="lib\itext-carriage-0.8.0.jar" size="18470" download="eager" />
+    <jar href="lib\itext-pdfa-5.5.2.jar" size="61016" download="eager" />
+    <jar href="lib\itextpdf-5.5.2.jar" size="2139257" download="eager" />
+    <jar href="lib\itextpdf-5.5.4.jar" size="2148390" download="eager" />
+    <jar href="lib\jackson-annotations-2.12.2.jar" size="75701" download="eager" />
+    <jar href="lib\jackson-core-2.12.2.jar" size="365219" download="eager" />
+    <jar href="lib\jackson-databind-2.12.2.jar" size="1515271" download="eager" />
+    <jar href="lib\jackson-dataformat-cbor-2.6.7.jar" size="48468" download="eager" />
+    <jar href="lib\jasperreports-6.0.4.jar" size="5196961" download="eager" />
+    <jar href="lib\jasperreports-6.17.0.jar" size="5652010" download="eager" />
+    <jar href="lib\jasperreports-shw-air-terminal-vertical-1.0.27.jar" size="21052" download="eager" />
+    <jar href="lib\jasypt-1.9.0.jar" size="125643" download="eager" />
+    <jar href="lib\javaee-api-5.jar" size="672170" download="eager" />
+    <jar href="lib\javax.inject-1.jar" size="2497" download="eager" />
+    <jar href="lib\javax.mail-1.4.7.jar" size="521000" download="eager" />
+    <jar href="lib\jcommon-1.0.23.jar" size="330246" download="eager" />
+    <jar href="lib\jdatepicker-1.3.4.jar" size="42949" download="eager" />
+    <jar href="lib\jfoenix.jar" size="2386350" download="eager" />
+    <jar href="lib\jfreechart-1.0.14.jar" size="1461633" download="eager" />
+    <jar href="lib\jmespath-java-1.11.827.jar" size="27586" download="eager" />
+    <jar href="lib\joda-time-2.8.1.jar" size="621931" download="eager" />
+    <jar href="lib\jsr305-3.0.0.jar" size="33031" download="eager" />
+    <jar href="lib\kahadb-5.7.0.jar" size="185083" download="eager" />
+    <jar href="lib\kernel-7.1.13.jar" size="1220253" download="eager" />
+    <jar href="lib\log4j-1.2.17.jar" size="489884" download="eager" />
+    <jar href="lib\log4j-api-2.1.jar" size="133531" download="eager" />
+    <jar href="lib\looks-2.0.4.jar" size="371799" download="eager" />
+    <jar href="lib\mariadb-java-client-3.0.4.jar" size="571732" download="eager" />
+    <jar href="lib\materialfx-11.13.4-all.jar" size="3283222" download="eager" />
+    <jar href="lib\materialfx-11.13.5-all.jar" size="3300877" download="eager" />
+    <jar href="lib\mqtt-client-1.3.jar" size="111146" download="eager" />
+    <jar href="lib\mssql-jdbc-7.2.2.jre11.jar" size="1173635" download="eager" />
+    <jar href="lib\mssql-jdbc-7.2.2.jre8.jar" size="1163656" download="eager" />
+    <jar href="lib\mysql-connector-java-5.1.3.jar" size="646552" download="eager" />
+    <jar href="lib\neuroph-2.92.jar" size="207401" download="eager" />
+    <jar href="lib\ojdbc6-11.2.0.4.jar" size="2739670" download="eager" />
+    <jar href="lib\ons-11.2.0.4.jar" size="71830" download="eager" />
+    <jar href="lib\oraclepki-11.2.0.4.jar" size="219382" download="eager" />
+    <jar href="lib\osdt_cert-11.2.0.4.jar" size="170248" download="eager" />
+    <jar href="lib\osdt_core-11.2.0.4.jar" size="262385" download="eager" />
+    <jar href="lib\pdfa-7.1.13.jar" size="55597" download="eager" />
+    <jar href="lib\poi-3.17.jar" size="2701171" download="eager" />
+    <jar href="lib\poi-ooxml-3.17.jar" size="1479023" download="eager" />
+    <jar href="lib\poi-ooxml-schemas-3.17.jar" size="5924600" download="eager" />
+    <jar href="lib\postgresql-42.3.3.jar" size="1039047" download="eager" />
+    <jar href="lib\rs2xml.jar" size="171578" download="eager" />
+    <jar href="lib\sardine-5.9.jar" size="136006" download="eager" />
+    <jar href="lib\simplefan-11.2.0.4.jar" size="20365" download="eager" />
+    <jar href="lib\slf4j-api-1.7.13.jar" size="33088" download="eager" />
+    <jar href="lib\slf4j-api-1.7.16.jar" size="40509" download="eager" />
+    <jar href="lib\slf4j-simple-1.7.19.jar" size="10862" download="eager" />
+    <jar href="lib\spring-aop-3.0.7.RELEASE.jar" size="321435" download="eager" />
+    <jar href="lib\spring-asm-3.0.7.RELEASE.jar" size="53082" download="eager" />
+    <jar href="lib\spring-beans-3.0.7.RELEASE.jar" size="556747" download="eager" />
+    <jar href="lib\spring-context-3.0.7.RELEASE.jar" size="670388" download="eager" />
+    <jar href="lib\spring-core-3.0.7.RELEASE.jar" size="383621" download="eager" />
+    <jar href="lib\spring-expression-3.0.7.RELEASE.jar" size="169749" download="eager" />
+    <jar href="lib\sqlitejdbc-v056.jar" size="2684154" download="eager" />
+    <jar href="lib\stax-api-1.0.1.jar" size="26514" download="eager" />
+    <jar href="lib\stax2-api.jar" size="177719" download="eager" />
+    <jar href="lib\swingx-1.6.1.jar" size="1389926" download="eager" />
+    <jar href="lib\tablefilter-swing-5.5.4.jar" size="184641" download="eager" />
+    <jar href="lib\tools-shw-air-terminal-vertical-1.0.27.jar" size="192447" download="eager" />
+    <jar href="lib\ucp-11.2.0.4.jar" size="506301" download="eager" />
+    <jar href="lib\vavr-0.10.4.jar" size="900516" download="eager" />
+    <jar href="lib\vavr-match-0.10.4.jar" size="3134" download="eager" />
+    <jar href="lib\weka-stable-3.8.1.jar" size="9126818" download="eager" />
+    <jar href="lib\woodstox-core-asl-4.1.1.jar" size="478446" download="eager" />
+    <jar href="lib\xml-apis-1.3.04.jar" size="194354" download="eager" />
+    <jar href="lib\xmlbeans-2.6.0.jar" size="2730866" download="eager" />
+  </resources>
+  <jfx:javafx-desc  width="800" height="600" main-class="com.kadysoft.kady.Main"  name="Laundry Material Stock" />
+  <update check="always"/>
+</jnlp>

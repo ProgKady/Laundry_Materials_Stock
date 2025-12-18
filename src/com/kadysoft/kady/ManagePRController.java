@@ -4,9 +4,11 @@ package com.kadysoft.kady;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXColorPicker;
 import com.jfoenix.controls.JFXTextField;
-import static com.kadysoft.kady.db.drib;
+import java.io.BufferedReader;
+
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -26,6 +28,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.Dialog;
@@ -97,6 +100,8 @@ public class ManagePRController implements Initializable {
 
     @FXML
     private JFXButton filterbtn;
+    
+       public static String useb,drib;
     
     @FXML
     private TableView<ObservableList<String>> table2;
@@ -480,7 +485,7 @@ public static class ItemData {
             // Load SQLite driver
             Class.forName("org.sqlite.JDBC");
             // Connect to the database
-            try (Connection conn = DriverManager.getConnection("jdbc:sqlite:"+drib+":\\KADINIO\\DATABASES\\Material\\Stock\\Database\\LaundryMaterialStock.db");
+            try (Connection conn = DriverManager.getConnection("jdbc:sqlite:"+drib+":\\KADINIO\\DATABASES\\Chemicals\\Material\\Stock\\Database\\ChemicalMaterialStock.db");
                  Statement stmt = conn.createStatement()) {
 
                 conn.setAutoCommit(false); // Disable auto-commit for batch updates
@@ -535,12 +540,12 @@ public static class ItemData {
     public void editt()   {
         
         
-        
+
         try {
             // Load SQLite driver
             Class.forName("org.sqlite.JDBC");
             // Connect to the database
-            try (Connection conn = DriverManager.getConnection("jdbc:sqlite:"+drib+":\\KADINIO\\DATABASES\\Material\\Stock\\Database\\LaundryMaterialStock.db");
+            try (Connection conn = DriverManager.getConnection("jdbc:sqlite:"+drib+":\\KADINIO\\DATABASES\\Chemicals\\Material\\Stock\\Database\\ChemicalMaterialStock.db");
                  Statement stmt = conn.createStatement();
                  ResultSet rs = stmt.executeQuery("SELECT * FROM Purchasing")) {
 
@@ -684,8 +689,43 @@ public static class ItemData {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-       
-        conn = db.java_db();
+        
+        try {
+            
+            
+        conn = che_db.java_che_db();
+        
+        useb=System.getProperty("user.name");
+    try {
+          BufferedReader buf = new BufferedReader(new FileReader("PCs\\"+useb+".kady"));
+          drib=buf.readLine();
+          buf.close();   
+          } catch (IOException ex) {       
+      //Alert
+      Alert alert = new Alert(Alert.AlertType.WARNING);
+      alert.setTitle("Fatal Error");
+      alert.setContentText("Fatal Error while reading user file.\nWe can't find the specified file.");
+      alert.setResizable(false);
+      alert.showAndWait();
+          } 
+            
+        }
+        
+        
+        catch (Exception gf) {
+        
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+      alert.setTitle("Fatal Error");
+      alert.setContentText(gf.toString());
+      alert.setResizable(false);
+      alert.showAndWait();
+        
+        }
+        
+        
+      
+        
+        
         refreshbtn.fire();
         editt();
     }    

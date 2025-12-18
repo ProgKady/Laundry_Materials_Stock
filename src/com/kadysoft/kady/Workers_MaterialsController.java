@@ -477,7 +477,7 @@ public class Workers_MaterialsController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
        
         
-         conn=db.java_db();
+         conn=che_db.java_che_db();
         
          
          table.getItems().clear();

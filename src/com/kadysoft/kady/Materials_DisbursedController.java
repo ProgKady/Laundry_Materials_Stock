@@ -287,7 +287,7 @@ public class Materials_DisbursedController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
       
-        conn=db.java_db();
+        conn=che_db.java_che_db();
         
       useb=System.getProperty("user.name");
       try {
