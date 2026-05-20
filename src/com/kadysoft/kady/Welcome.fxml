@@ -1,28 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="512.0" prefWidth="659.0" stylesheets="@primer-dark.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.kadysoft.kady.WelcomeController">
-   <children>
-      <Label alignment="CENTER" layoutX="99.0" layoutY="78.0" style="-fx-font-size: 22; -fx-font-weight: bold;" text="Welcome To T&amp;C Laundry Material Manager">
-         <effect>
-            <DropShadow spread="1.0" />
-         </effect>
-      </Label>
-      <JFXButton fx:id="laundrybtn" buttonType="RAISED" layoutX="176.0" layoutY="184.0" onAction="#laundrybtnaction" prefHeight="37.0" prefWidth="308.0" style="-fx-font-weight: bold; -fx-background-radius: 3em; -fx-font-size: 16; -fx-background-color: #172B4D;" text="Laundry Material Stock">
-         <effect>
-            <DropShadow />
-         </effect></JFXButton>
-      <JFXButton fx:id="chemicalbtn" buttonType="RAISED" layoutX="176.0" layoutY="299.0" onAction="#chemicalbtnaction" prefHeight="37.0" prefWidth="308.0" style="-fx-font-weight: bold; -fx-background-radius: 3em; -fx-font-size: 16; -fx-background-color: #172B4D;" text="Chemicals Material Stock">
-         <effect>
-            <DropShadow />
-         </effect></JFXButton>
-      <JFXButton fx:id="exitbtn" buttonType="RAISED" layoutX="293.0" layoutY="410.0" onAction="#exitbtnaction" onMouseEntered="#exitaction" prefHeight="36.0" prefWidth="74.0" style="-fx-background-color: brown; -fx-font-weight: bold; -fx-background-radius: 3em; -fx-font-size: 15;" text="Exit">
-         <effect>
-            <DropShadow />
-         </effect></JFXButton>
-   </children>
+<AnchorPane fx:id="AnchorPane" prefHeight="512.0" prefWidth="659.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #f0fdf4, #dcfce7);" stylesheets="@Styling.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.kadysoft.kady.WelcomeController">
+
+    <children>
+        <!-- Title Label -->
+        <Label alignment="CENTER" layoutX="29.0" layoutY="24.0" prefWidth="560.0" style="-fx-font-family: 'Cairo Semibold'; -fx-font-size: 22; -fx-font-weight: bold; -fx-text-fill: #15803d;" text="Welcome To T&amp;C Garments Stock Manager">
+            <effect>
+                <DropShadow color="#dcfce7" offsetX="0" offsetY="6" radius="12" spread="0.1" />
+            </effect>
+        </Label>
+
+        <!-- Laundry Material Button -->
+        <JFXButton fx:id="laundrybtn" buttonType="RAISED" layoutX="187.0" layoutY="121.0" onAction="#laundrybtnaction" prefHeight="57.0" prefWidth="285.0" style="-fx-font-family: 'Cairo Semibold'; -fx-font-size: 16; -fx-font-weight: bold; -fx-background-radius: 30; -fx-background-color: #dcfce7; -fx-text-fill: #15803d;" text="Materials Stock Manager" visible="false" />
+
+        <!-- Chemicals Material Button -->
+        <JFXButton fx:id="chemicalbtn" buttonType="RAISED" layoutX="187.0" layoutY="169.0" onAction="#chemicalbtnaction" prefHeight="57.0" prefWidth="285.0" style="-fx-font-family: 'Cairo Semibold'; -fx-font-size: 16; -fx-font-weight: bold; -fx-background-radius: 30; -fx-background-color: #dcfce7; -fx-text-fill: #15803d;" text="Go To Stock Manager" />
+
+        <!-- Exit Button -->
+        <JFXButton fx:id="exitbtn" buttonType="RAISED" layoutX="272.0" layoutY="389.0" onAction="#exitbtnaction" prefHeight="39.0" prefWidth="116.0" style="-fx-font-family: 'Cairo Semibold'; -fx-font-size: 15; -fx-font-weight: bold; -fx-background-radius: 30; -fx-background-color: #fef2f2; -fx-text-fill: #ef4444;" styleClass="button-exit" text="Exit" />
+      <ImageView fitHeight="53.0" fitWidth="43.0" layoutX="99.0" layoutY="176.0" pickOnBounds="true" preserveRatio="true" rotate="26.6">
+         <image>
+            <Image url="@cool.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="53.0" fitWidth="43.0" layoutX="559.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@correct.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="53.0" fitWidth="43.0" layoutX="509.0" layoutY="368.0" pickOnBounds="true" preserveRatio="true" rotate="26.6">
+         <image>
+            <Image url="@emoji%20(1).png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="53.0" fitWidth="43.0" layoutX="92.0" layoutY="382.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@emoji.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="53.0" fitWidth="43.0" layoutX="309.0" layoutY="314.0" pickOnBounds="true" preserveRatio="true" rotate="26.6">
+         <image>
+            <Image url="@happy-face.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="53.0" fitWidth="43.0" layoutX="308.0" layoutY="87.0" pickOnBounds="true" preserveRatio="true" rotate="26.6">
+         <image>
+            <Image url="@laugh.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="53.0" fitWidth="43.0" layoutX="509.0" layoutY="178.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@smiley.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="43.0" fitWidth="58.0" layoutX="14.0" layoutY="455.0" onMouseClicked="#settingsaction" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@tune.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <Label layoutX="69.0" layoutY="467.0" style="-fx-font-weight: bold; -fx-font-size: 15;" text="Settings" underline="true" />
+    </children>
 </AnchorPane>

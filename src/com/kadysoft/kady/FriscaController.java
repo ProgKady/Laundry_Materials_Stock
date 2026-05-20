@@ -164,7 +164,7 @@ public class FriscaController implements Initializable {
       alert.setContentText("Shipment Name is: "+materiall+", And Its Patch Is: "+patchh+".");
       DialogPane dialogPane = alert.getDialogPane();
       dialogPane.getStylesheets().add(
-      getClass().getResource("primer-dark.css").toExternalForm());
+      getClass().getResource("cupertino-light.css").toExternalForm());
       // option != null.
       Optional<ButtonType> option = alert.showAndWait();
       if (option.get() == null) {
@@ -300,7 +300,7 @@ ObservableList<String> selectedItems = table.getSelectionModel().getSelectedItem
 area.clear();
 area.appendText(selectedItems.toString().replace("[","").replace("]","").replace(", ","\n"));
 String codee=area.getText();
-File bnm=new File (System.getProperty("user.home")+"\\Ship.kady");
+File bnm=new File (System.getProperty("user.home")+"\\Ship.kady");\
 bnm.createNewFile();
 PrintWriter pw=new PrintWriter (new FileWriter (bnm));
 pw.print(area.getText());

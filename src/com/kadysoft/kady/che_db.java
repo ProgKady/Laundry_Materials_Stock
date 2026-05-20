@@ -14,6 +14,36 @@ import javax.swing.JOptionPane;
 public class che_db {
    Connection connn = null;
    
+   
+   
+   
+   ////////////////////////////////////////////////////////////////////////////////////////////////////////   
+        public static String getValueByKey(String filePath, String key) {
+        try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                if (!line.contains("=")) {
+                continue;
+                }
+                String[] parts = line.split("=", 2);
+                String currentKey = parts[0].trim();
+                if (currentKey.equals(key)) {
+                    return parts[1].trim();
+                }
+            }
+        } catch (IOException e) {
+        e.printStackTrace();
+        }
+        return null; 
+    }
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+   
+   
+   
+   
+   
+   
+   
    public static String useb,drib;
 
    public static Connection java_che_db() {
@@ -34,12 +64,31 @@ public class che_db {
           }
        
        
-       
+       ////////////////////////////////////////////////////////////////////////////////////////////////////////   
+        public static String getValueByKey(String filePath, String key) {
+        try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                if (!line.contains("=")) {
+                    continue;
+                }
+                String[] parts = line.split("=", 2);
+                String currentKey = parts[0].trim();
+                if (currentKey.equals(key)) {
+                    return parts[1].trim();
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null; 
+    }
+/////////////////////////////////////////////////////////////////////////////////////////////////////////// 
        
        
       try {
          Class.forName("org.sqlite.JDBC");
-         Connection connn = DriverManager.getConnection("jdbc:sqlite:"+drib+":\\KADINIO\\DATABASES\\Chemicals\\Material\\Stock\\Database\\ChemicalMaterialStock.db");
+         Connection connn = DriverManager.getConnection("jdbc:sqlite:"+drib+":\\KADINIO\\DATABASES\\Chemicals\\Material\\Stock\\Database\\ChemicalMaterialStock.db");\
          return connn;
       } catch (Exception var1) {
          

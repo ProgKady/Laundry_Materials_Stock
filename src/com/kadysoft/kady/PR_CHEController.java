@@ -180,7 +180,7 @@ public class PR_CHEController implements Initializable {
     String timeString = sdf.format(d);
     String value1 = timeString;
         
-        String source=""+drib+":\\KADINIO\\DATABASES\\Material\\Stock\\Contents\\KADINIO.xlsx";
+        String source=""+drib+":\\KADINIO\\DATABASES\\Material\\Stock\\Contents\\KADINIO.xlsx";\
         String destination=System.getProperty("user.home")+"\\Desktop\\Purchase_Request_Of_"+value1+".xlsx";
         String linet = "cmd /C copy /Y "+source+" "+destination;
         Process p = Runtime.getRuntime().exec(linet);
@@ -240,8 +240,8 @@ public class PR_CHEController implements Initializable {
       String add1 = this.rss.getString("Chemical_Name");
       this.itemname.setText(add1);
       
-      //String add2 = this.rss.getString("Type");
-      //this.unit.setText(add2);
+      String add2 = this.rss.getString("Type");
+      this.unit.setText(add2);
       
       String add3 = this.rss.getString("Stock");
       this.stock.setText(add3);
@@ -249,6 +249,11 @@ public class PR_CHEController implements Initializable {
     }
         
         catch (Exception exception) {
+            
+      this.itemname.clear();
+      this.unit.clear();
+      this.stock.clear();
+            
     } 
         finally {
       try {
@@ -260,6 +265,19 @@ public class PR_CHEController implements Initializable {
           
         
           
+      if(this.code.getText().equals("")||code.getText().equals(" ")) {
+      
+      this.itemname.clear();
+      this.unit.clear();
+      this.stock.clear();
+      
+     
+    } else {
+      
+    } 
+      
+      
+      
 
     }
     
@@ -389,7 +407,7 @@ bnm.delete();
       alert.setResizable(false);
       DialogPane dialogPane = alert.getDialogPane();
       dialogPane.getStylesheets().add(
-    getClass().getResource("cupertino-dark.css").toExternalForm());
+    getClass().getResource("cupertino-light.css").toExternalForm());
       alert.showAndWait();
       
       Stage jk = (Stage)this.quantity.getScene().getWindow();

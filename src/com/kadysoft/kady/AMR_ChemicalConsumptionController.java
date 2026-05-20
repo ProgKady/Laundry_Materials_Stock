@@ -116,7 +116,7 @@ public class AMR_ChemicalConsumptionController implements Initializable {
     private Hyperlink con,con1,quaa,quaa1;
     
     @FXML
-    private Pane pany;
+    private VBox pany;
     
     @FXML
     private Spinner<Integer> fontsize;
@@ -297,7 +297,7 @@ public class AMR_ChemicalConsumptionController implements Initializable {
       alert2.setResizable(false);
       DialogPane dialogPane2 = alert2.getDialogPane();
       dialogPane2.getStylesheets().add(
-    getClass().getResource("primer-dark.css").toExternalForm());
+    getClass().getResource("cupertino-light.css").toExternalForm());
       Optional<ButtonType> option2 = alert2.showAndWait();
       if (option2.get() == null) {con.setVisible(true);
         con1.setVisible(false);} 

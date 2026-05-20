@@ -3,26 +3,49 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import com.jfoenix.controls.JFXToggleButton?>
+<?import java.net.URL?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<GridPane id="AnchorPane" alignment="CENTER" gridLinesVisible="true" prefHeight="840.0" prefWidth="1326.0" stylesheets="@primer-dark.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.kadysoft.kady.AMR_ChemicalIndexesController">
-   <children>
-      <BorderPane prefHeight="840.0" prefWidth="1326.0" GridPane.rowIndex="1">
-         <center>
-            <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+
+<BorderPane prefHeight="721.0" prefWidth="1317.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.kadysoft.kady.AMR_ChemicalIndexesController">
+   <top>
+      <MenuBar style="-fx-font-weight: bold;" BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem fx:id="loadindexes" mnemonicParsing="false" onAction="#loadindexesaction" text="Load Indexes" />
+                  <MenuItem fx:id="addnewindex" mnemonicParsing="false" onAction="#addnewindexaction" text="Add New Index" />
+                  <MenuItem fx:id="updateitemprice" mnemonicParsing="false" onAction="#updateitempriceaction" text="Update Item Price" />
+                  <MenuItem fx:id="exporttoexcel" mnemonicParsing="false" onAction="#exporttoexcelaction" text="Export To Excel" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <SeparatorMenuItem mnemonicParsing="false">
+                     <content>
+                        <JFXToggleButton fx:id="openhack" onAction="#openhackaction" text="Open Hack" />
+                     </content>
+                  </SeparatorMenuItem>
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem fx:id="modifyindex" disable="true" mnemonicParsing="false" onAction="#modifyindexaction" style="-fx-background-color: red; -fx-font-weight: bold;" text="Modify Existing Index (Hack The Indexes) Use At Your Own Risk." />
+                  <MenuItem fx:id="deleteindex" disable="true" mnemonicParsing="false" onAction="#deleteindexaction" style="-fx-background-color: red; -fx-font-weight: bold;" text="Delete An Index (Hack The Indexes) Use At Your Own Risk. " />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <TableView fx:id="table" onMouseClicked="#tableaction" prefHeight="851.0" prefWidth="1317.0" tableMenuButtonVisible="true" />
+            <StackPane prefHeight="150.0" prefWidth="200.0">
                <children>
-                  <TableView fx:id="table" layoutX="13.0" layoutY="14.0" onMouseClicked="#tableaction" prefHeight="681.0" prefWidth="1301.0" tableMenuButtonVisible="true" />
-                  <Pane fx:id="addpane" layoutX="14.0" layoutY="703.0" prefHeight="83.0" prefWidth="1299.0" visible="false">
+                  <Pane fx:id="addpane" prefHeight="83.0" prefWidth="1299.0" visible="false">
                      <children>
                         <JFXTextField fx:id="addcode" alignment="CENTER" labelFloat="true" layoutX="14.0" layoutY="24.0" prefHeight="36.0" prefWidth="81.0" promptText="Code" />
                         <JFXTextField fx:id="addsupplier" alignment="CENTER" labelFloat="true" layoutX="117.0" layoutY="24.0" prefHeight="36.0" prefWidth="156.0" promptText="Supplier" />
@@ -32,7 +55,7 @@
                         <JFXButton fx:id="addindex" buttonType="RAISED" layoutX="1126.0" layoutY="24.0" onAction="#addindexaction" text="Add Index" />
                      </children>
                   </Pane>
-                  <Pane fx:id="modifydeletepane" layoutX="14.0" layoutY="703.0" prefHeight="83.0" prefWidth="1299.0" visible="false">
+                  <Pane fx:id="modifydeletepane" prefHeight="83.0" prefWidth="1299.0" visible="false">
                      <children>
                         <JFXTextField fx:id="rownumber" alignment="CENTER" editable="false" labelFloat="true" layoutX="106.0" layoutY="24.0" prefHeight="36.0" prefWidth="130.0" promptText="Row Number" />
                         <JFXTextField fx:id="columnname" alignment="CENTER" editable="false" labelFloat="true" layoutX="264.0" layoutY="24.0" prefHeight="36.0" prefWidth="184.0" promptText="Column Name" />
@@ -41,7 +64,7 @@
                         <JFXButton fx:id="delete" buttonType="RAISED" layoutX="971.0" layoutY="24.0" onAction="#deleteaction" prefHeight="36.0" prefWidth="100.0" style="-fx-background-color: tomato;" text="Delete" />
                      </children>
                   </Pane>
-                  <Pane fx:id="updatepricepane" layoutX="14.0" layoutY="701.0" prefHeight="88.0" prefWidth="1299.0" visible="false">
+                  <Pane fx:id="updatepricepane" prefHeight="88.0" prefWidth="1299.0" visible="false">
                      <children>
                         <JFXTextField fx:id="itemcode" alignment="CENTER" labelFloat="true" layoutX="140.0" layoutY="26.0" onKeyReleased="#itemcoderel" prefHeight="36.0" prefWidth="118.0" promptText="Item Code" />
                         <JFXTextField fx:id="itemname" alignment="CENTER" editable="false" labelFloat="true" layoutX="328.0" layoutY="26.0" prefHeight="36.0" prefWidth="416.0" promptText="Item Name" />
@@ -50,40 +73,12 @@
                      </children>
                   </Pane>
                </children>
-            </Pane>
-         </center>
-      </BorderPane>
-      <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
-         <children>
-            <MenuBar style="-fx-font-weight: bold;">
-              <menus>
-                <Menu mnemonicParsing="false" text="File">
-                  <items>
-                    <MenuItem fx:id="loadindexes" mnemonicParsing="false" onAction="#loadindexesaction" text="Load Indexes" />
-                        <MenuItem fx:id="addnewindex" mnemonicParsing="false" onAction="#addnewindexaction" text="Add New Index" />
-                        <MenuItem fx:id="updateitemprice" mnemonicParsing="false" onAction="#updateitempriceaction" text="Update Item Price" />
-                        <MenuItem fx:id="exporttoexcel" mnemonicParsing="false" onAction="#exporttoexcelaction" text="Export To Excel" />
-                        <SeparatorMenuItem mnemonicParsing="false" />
-                        <SeparatorMenuItem mnemonicParsing="false">
-                           <content>
-                              <JFXToggleButton fx:id="openhack" onAction="#openhackaction" text="Open Hack" />
-                           </content>
-                        </SeparatorMenuItem>
-                        <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem fx:id="modifyindex" disable="true" mnemonicParsing="false" onAction="#modifyindexaction" style="-fx-background-color: red; -fx-font-weight: bold;" text="Modify Existing Index (Hack The Indexes) Use At Your Own Risk." />
-                        <MenuItem fx:id="deleteindex" disable="true" mnemonicParsing="false" onAction="#deleteindexaction" style="-fx-background-color: red; -fx-font-weight: bold;" text="Delete An Index (Hack The Indexes) Use At Your Own Risk. " />
-                  </items>
-                </Menu>
-              </menus>
-            </MenuBar>
+            </StackPane>
          </children>
       </VBox>
-   </children>
-   <columnConstraints>
-      <ColumnConstraints />
-   </columnConstraints>
-   <rowConstraints>
-      <RowConstraints maxHeight="78.0" minHeight="10.0" prefHeight="30.0" />
-      <RowConstraints maxHeight="819.0" minHeight="762.0" prefHeight="810.0" />
-   </rowConstraints>
-</GridPane>
+   </center>
+   <stylesheets>
+      <URL value="@cupertino-light.css" />
+      <URL value="@Styling.css" />
+   </stylesheets>
+</BorderPane>

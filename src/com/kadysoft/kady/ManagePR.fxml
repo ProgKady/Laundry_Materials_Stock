@@ -2,30 +2,34 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXTextField?>
+<?import java.net.URL?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="838.0" prefWidth="1303.0" stylesheets="@primer-dark.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="com.kadysoft.kady.ManagePRController">
+<AnchorPane id="AnchorPane" prefHeight="838.0" prefWidth="1076.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #f0fdf4, #dcfce7);" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.kadysoft.kady.ManagePRController">
    <children>
-      <JFXButton fx:id="requestbtn" buttonType="RAISED" layoutX="321.0" layoutY="401.0" onAction="#requestbtnaction" style="-fx-font-weight: bold; -fx-background-radius: 3em; -fx-background-color: #023e8a;" text="Request" />
-      <JFXButton fx:id="responsebtn" buttonType="RAISED" layoutX="844.0" layoutY="401.0" onAction="#responsebtnaction" style="-fx-font-weight: bold; -fx-background-radius: 3em; -fx-background-color: #660708;" text="Response" />
+      <JFXButton fx:id="requestbtn" buttonType="RAISED" layoutX="321.0" layoutY="401.0" onAction="#requestbtnaction" style="-fx-font-weight: bold; -fx-background-radius: 3em; -fx-background-color: #ff4d6d;" text="Request" />
+      <JFXButton fx:id="responsebtn" buttonType="RAISED" layoutX="844.0" layoutY="401.0" onAction="#responsebtnaction" style="-fx-font-weight: bold; -fx-background-radius: 3em; -fx-background-color: #ff4d6d;" text="Response" />
       <Pane fx:id="requestpanel" layoutX="14.0" layoutY="14.0" prefHeight="810.0" prefWidth="1272.0" visible="false">
          <children>
             <JFXTextField fx:id="pathtofile" editable="false" labelFloat="true" layoutX="30.0" layoutY="27.0" prefHeight="36.0" prefWidth="538.0" promptText="Browse for excel file ..." style="-fx-font-weight: bold;" />
-            <JFXButton fx:id="browsebtn" buttonType="RAISED" layoutX="600.0" layoutY="27.0" onAction="#browsebtnaction" style="-fx-font-weight: bold; -fx-background-color: #231942;" text="Browse" />
+            <JFXButton fx:id="browsebtn" buttonType="RAISED" layoutX="600.0" layoutY="27.0" onAction="#browsebtnaction" style="-fx-font-weight: bold; -fx-background-color: #219ebc;" text="Browse" />
             <TableView fx:id="table1" layoutX="30.0" layoutY="78.0" prefHeight="723.0" prefWidth="1212.0" style="-fx-font-weight: bold;" />
-            <JFXButton fx:id="savetodb" buttonType="RAISED" layoutX="1143.0" layoutY="27.0" onAction="#savetodbaction" style="-fx-font-weight: bold; -fx-background-color: #003f88;" text="Save To DB" />
+            <JFXButton fx:id="savetodb" buttonType="RAISED" layoutX="1143.0" layoutY="27.0" onAction="#savetodbaction" style="-fx-font-weight: bold; -fx-background-color: #219ebc;" text="Save To DB" />
          </children>
       </Pane>
       <Pane fx:id="responsepanel" layoutX="13.0" layoutY="20.0" prefHeight="810.0" prefWidth="1272.0" visible="false">
          <children>
             <TableView fx:id="table2" layoutX="21.0" layoutY="71.0" prefHeight="717.0" prefWidth="1230.0" style="-fx-font-weight: bold;" />
-            <JFXButton fx:id="refreshbtn" buttonType="RAISED" layoutX="21.0" layoutY="14.0" onAction="#refreshbtn" style="-fx-font-weight: bold; -fx-background-color: #003f88;" text="Refresh" />
-            <JFXButton fx:id="updatebtn" buttonType="RAISED" layoutX="1178.0" layoutY="14.0" onAction="#updatebtnaction" style="-fx-font-weight: bold; -fx-background-color: #2c6e49;" text="Update" />
-            <JFXButton fx:id="filterbtn" buttonType="RAISED" layoutX="135.0" layoutY="14.0" onAction="#filterbtnaction" prefHeight="36.0" prefWidth="74.0" style="-fx-font-weight: bold; -fx-background-color: #4f772d;" text="Filter" />
+            <JFXButton fx:id="refreshbtn" buttonType="RAISED" layoutX="21.0" layoutY="14.0" onAction="#refreshbtn" style="-fx-font-weight: bold; -fx-background-color: #0077b6;" text="Refresh" />
+            <JFXButton fx:id="updatebtn" buttonType="RAISED" layoutX="1178.0" layoutY="14.0" onAction="#updatebtnaction" style="-fx-font-weight: bold; -fx-background-color: #0077b6;" text="Update" />
+            <JFXButton fx:id="filterbtn" buttonType="RAISED" layoutX="135.0" layoutY="14.0" onAction="#filterbtnaction" prefHeight="36.0" prefWidth="74.0" style="-fx-font-weight: bold; -fx-background-color: #0077b6;" text="Filter" />
          </children>
       </Pane>
    </children>
+   <stylesheets>
+      <URL value="@cupertino-light.css" />
+      <URL value="@Styling.css" />
+   </stylesheets>
 </AnchorPane>

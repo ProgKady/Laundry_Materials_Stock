@@ -104,7 +104,7 @@ public class Critical_CHEController implements Initializable {
         String all=che+equal+val;
         
         
-          String pathhhd=""+drib+":\\KADINIO\\DATABASES\\Chemicals\\Material\\Stock\\Contents\\Critical.kady";
+          String pathhhd=""+drib+":\\KADINIO\\DATABASES\\Chemicals\\Material\\Stock\\Contents\\Critical.kady";\
         
         try {
     final Path path = Paths.get(pathhhd);
@@ -153,7 +153,7 @@ public class Critical_CHEController implements Initializable {
       alert.setResizable(false);
       DialogPane dialogPane = alert.getDialogPane();
       dialogPane.getStylesheets().add(
-    getClass().getResource("cupertino-dark.css").toExternalForm());
+    getClass().getResource("cupertino-light.css").toExternalForm());
       alert.showAndWait();
       Stage jk = (Stage)this.code.getScene().getWindow();
       jk.close();

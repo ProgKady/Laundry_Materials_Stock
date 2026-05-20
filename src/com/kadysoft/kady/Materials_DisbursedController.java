@@ -228,7 +228,7 @@ public class Materials_DisbursedController implements Initializable {
 
     this.item.getItems().clear();
     try {
-      BufferedReader buf = new BufferedReader(new FileReader(""+drib+":\\KADINIO\\DATABASES\\Material\\Stock\\Contents\\Items.kady"));
+      BufferedReader buf = new BufferedReader(new FileReader(""+drib+":\\KADINIO\\DATABASES\\Material\\Stock\\Contents\\Items.kady"));\
       String line;
       while ((line = buf.readLine()) != null) {
         this.item.getItems().addAll(new String[] { line });
@@ -248,7 +248,7 @@ public class Materials_DisbursedController implements Initializable {
 
     this.section.getItems().clear();
     try {
-      BufferedReader buf = new BufferedReader(new FileReader(""+drib+":\\KADINIO\\DATABASES\\Material\\Stock\\Contents\\Sections.kady"));
+      BufferedReader buf = new BufferedReader(new FileReader(""+drib+":\\KADINIO\\DATABASES\\Material\\Stock\\Contents\\Sections.kady"));\
       String line;
       while ((line = buf.readLine()) != null) {
         this.section.getItems().addAll(new String[] { line });
@@ -268,7 +268,7 @@ public class Materials_DisbursedController implements Initializable {
 
     this.forbid.getItems().clear();
     try {
-      BufferedReader buf = new BufferedReader(new FileReader(""+drib+":\\KADINIO\\DATABASES\\Material\\Stock\\Contents\\Forbidden.kady"));
+      BufferedReader buf = new BufferedReader(new FileReader(""+drib+":\\KADINIO\\DATABASES\\Material\\Stock\\Contents\\Forbidden.kady"));\
       String line;
       while ((line = buf.readLine()) != null) {
         this.forbid.getItems().addAll(new String[] { line });
@@ -302,7 +302,7 @@ public class Materials_DisbursedController implements Initializable {
       alert.setResizable(false);
       DialogPane dialogPane = alert.getDialogPane();
       dialogPane.getStylesheets().add(
-    getClass().getResource("cupertino-dark.css").toExternalForm());
+    getClass().getResource("cupertino-light.css").toExternalForm());
       alert.showAndWait();
       Stage jk = (Stage)this.item.getScene().getWindow();
       jk.close();

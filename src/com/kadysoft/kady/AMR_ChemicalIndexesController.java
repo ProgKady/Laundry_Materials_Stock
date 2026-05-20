@@ -193,7 +193,7 @@ public class AMR_ChemicalIndexesController implements Initializable {
       alert.setGraphic(code);
       DialogPane dialogPaneef = alert.getDialogPane();
       dialogPaneef.getStylesheets().add(
-      getClass().getResource("primer-dark.css").toExternalForm());
+      getClass().getResource("cupertino-light.css").toExternalForm());
       Optional<ButtonType> option = alert.showAndWait();
       if (option.get() == null) {
          
@@ -397,7 +397,7 @@ public class AMR_ChemicalIndexesController implements Initializable {
       alert.setHeaderText("Are you sure want to Delete this Record ?");
       DialogPane dialogPaneef = alert.getDialogPane();
       dialogPaneef.getStylesheets().add(
-      getClass().getResource("primer-dark.css").toExternalForm());
+      getClass().getResource("cupertino-light.css").toExternalForm());
 
       // option != null.
       Optional<ButtonType> option = alert.showAndWait();
@@ -691,7 +691,7 @@ public class AMR_ChemicalIndexesController implements Initializable {
       alert.setGraphic(vbox);
 DialogPane dialogPaneef = alert.getDialogPane();
       dialogPaneef.getStylesheets().add(
-      getClass().getResource("primer-dark.css").toExternalForm());
+      getClass().getResource("cupertino-light.css").toExternalForm());
       // option != null.
       Optional<ButtonType> option = alert.showAndWait();
 

@@ -3,52 +3,53 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXCheckBox?>
 <?import com.jfoenix.controls.JFXTextField?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.effect.DropShadow?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
 
-<AnchorPane id="AnchorPane" prefHeight="881.0" prefWidth="1696.0" stylesheets="@primer-dark.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.kadysoft.kady.Workers_MaterialsController">
-   <children>
-      <Pane layoutX="14.0" layoutY="797.0" prefHeight="79.0" prefWidth="1670.0">
+
+<BorderPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.kadysoft.kady.Workers_MaterialsController">
+   <bottom>
+      <HBox alignment="CENTER_LEFT" prefHeight="68.0" prefWidth="1670.0" spacing="10.0" BorderPane.alignment="CENTER">
          <children>
-            <JFXTextField fx:id="date" alignment="CENTER" labelFloat="true" layoutX="6.0" layoutY="22.0" prefHeight="36.0" prefWidth="110.0" promptText="Date" style="-fx-font-weight: bold;">
-               <effect>
-                  <DropShadow />
-               </effect>
-            </JFXTextField>
-            <JFXTextField fx:id="code" alignment="CENTER" labelFloat="true" layoutX="119.0" layoutY="22.0" onKeyReleased="#inputcode" prefHeight="36.0" prefWidth="90.0" promptText="Code" style="-fx-font-weight: bold;">
-               <effect>
-                  <DropShadow />
-               </effect>
-            </JFXTextField>
-            <JFXTextField fx:id="name" alignment="CENTER" labelFloat="true" layoutX="213.0" layoutY="22.0" prefHeight="36.0" prefWidth="282.0" promptText="Name" style="-fx-font-weight: bold;">
-               <effect>
-                  <DropShadow />
-               </effect>
-            </JFXTextField>
-            <JFXCheckBox fx:id="pboot" layoutX="495.0" layoutY="31.0" onAction="#pbootaction" style="-fx-font-weight: bold;" text="Plastic Boot" />
-            <JFXCheckBox fx:id="goggles" layoutX="603.0" layoutY="31.0" onAction="#gogglesaction" style="-fx-font-weight: bold;" text="Safety Goggles" />
-            <JFXCheckBox fx:id="pflask" layoutX="732.0" layoutY="31.0" onAction="#pflaskaction" prefHeight="22.0" prefWidth="143.0" style="-fx-font-weight: bold;" text="Plastic Flask 2 L" />
-            <JFXCheckBox fx:id="pbucket" layoutX="865.0" layoutY="31.0" onAction="#pbucketaction" style="-fx-font-weight: bold;" text="P. Bucket" />
-            <JFXCheckBox fx:id="pcoverall" layoutX="957.0" layoutY="31.0" onAction="#pcoverallaction" style="-fx-font-weight: bold;" text="P. CoverAll" />
-            <JFXCheckBox fx:id="gloves3m" layoutX="1061.0" layoutY="31.0" onAction="#gloves3maction" style="-fx-font-weight: bold;" text="Gloves 3M" />
-            <JFXCheckBox fx:id="filter3m" layoutX="1161.0" layoutY="31.0" onAction="#filter3maction" style="-fx-font-weight: bold;" text="Filter 3M" />
-            <JFXCheckBox fx:id="mask3m" layoutX="1251.0" layoutY="31.0" onAction="#mask3maction" style="-fx-font-weight: bold;" text="Mask 3M" />
-            <JFXButton fx:id="add" buttonType="RAISED" layoutX="1571.0" layoutY="24.0" onAction="#addaction" prefHeight="36.0" prefWidth="99.0" style="-fx-background-color: #0f9d58; -fx-font-weight: bold; -fx-background-radius: 3em;" text="Add">
+            <JFXTextField fx:id="date" alignment="CENTER" labelFloat="true" prefHeight="36.0" prefWidth="110.0" promptText="Date" style="-fx-font-weight: bold;" />
+            <JFXTextField fx:id="code" alignment="CENTER" labelFloat="true" onKeyReleased="#inputcode" prefHeight="36.0" prefWidth="90.0" promptText="Code" style="-fx-font-weight: bold;" />
+            <JFXTextField fx:id="name" alignment="CENTER" labelFloat="true" prefHeight="36.0" prefWidth="282.0" promptText="Name" style="-fx-font-weight: bold;" />
+            <JFXCheckBox fx:id="pboot" onAction="#pbootaction" style="-fx-font-weight: bold;" text="Plastic Boot" />
+            <JFXCheckBox fx:id="goggles" onAction="#gogglesaction" style="-fx-font-weight: bold;" text="Safety Goggles" />
+            <JFXCheckBox fx:id="pflask" onAction="#pflaskaction" prefHeight="22.0" prefWidth="143.0" style="-fx-font-weight: bold;" text="Plastic Flask 2 L" />
+            <JFXCheckBox fx:id="pbucket" onAction="#pbucketaction" style="-fx-font-weight: bold;" text="P. Bucket" />
+            <JFXCheckBox fx:id="pcoverall" onAction="#pcoverallaction" style="-fx-font-weight: bold;" text="P. CoverAll" />
+            <JFXCheckBox fx:id="gloves3m" onAction="#gloves3maction" style="-fx-font-weight: bold;" text="Gloves 3M" />
+            <JFXCheckBox fx:id="filter3m" onAction="#filter3maction" style="-fx-font-weight: bold;" text="Filter 3M" />
+            <JFXCheckBox fx:id="mask3m" onAction="#mask3maction" style="-fx-font-weight: bold;" text="Mask 3M" />
+            <JFXCheckBox fx:id="fabricgloves" onAction="#fabricglovesaction" style="-fx-font-weight: bold;" text="Fabric Gloves" />
+            <JFXCheckBox fx:id="sprayfullbody" onAction="#sprayfullbodyaction" style="-fx-font-weight: bold;" text="Spray Full Body" />
+            <JFXCheckBox fx:id="uniform" onAction="#uniformaction" style="-fx-font-weight: bold;" text="Uniform" />
+            <JFXButton fx:id="add" buttonType="RAISED" onAction="#addaction" prefHeight="36.0" prefWidth="99.0" style="-fx-background-color: #0f9d58; -fx-font-weight: bold; -fx-background-radius: 3em;" text="Add">
                <effect>
                   <DropShadow />
                </effect>
             </JFXButton>
-            <JFXCheckBox fx:id="fabricgloves" layoutX="1343.0" layoutY="31.0" onAction="#fabricglovesaction" style="-fx-font-weight: bold;" text="Fabric Gloves" />
-            <JFXCheckBox fx:id="uniform" layoutX="1460.0" layoutY="31.0" onAction="#uniformaction" style="-fx-font-weight: bold;" text="Uniform" />
          </children>
-      </Pane>
-      <ScrollPane layoutX="14.0" layoutY="14.0" prefHeight="780.0" prefWidth="1670.0">
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </HBox>
+   </bottom>
+   <center>
+      <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="780.0" prefWidth="1670.0" BorderPane.alignment="CENTER">
          <content>
             <TableView fx:id="table" prefHeight="780.0" prefWidth="1669.0" style="-fx-font-weight: bold; -fx-font-size: 12;" />
          </content>
       </ScrollPane>
-   </children>
-</AnchorPane>
+   </center>
+   <stylesheets>
+      <URL value="@cupertino-light.css" />
+      <URL value="@Styling.css" />
+   </stylesheets>
+</BorderPane>

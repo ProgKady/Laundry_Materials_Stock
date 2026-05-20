@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
- */
+
 package com.kadysoft.kady;
 
 import com.gluonhq.charm.down.Platform;
@@ -12,6 +9,7 @@ import com.jfoenix.controls.JFXButton;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.animation.PauseTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -20,6 +18,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 /**
  * FXML Controller class
@@ -57,16 +56,30 @@ public class WelcomeController implements Initializable {
     }
     
     
-    
-    
+        @FXML
+    void settingsaction(MouseEvent event) throws IOException {
 
+        
+            Stage stg = new Stage();
+            Parent root = FXMLLoader.<Parent>load(getClass().getResource("Settings.fxml"));
+            Scene sce = new Scene(root);
+            stg.setTitle("Settings");
+            stg.centerOnScreen();
+            stg.setResizable(false);
+            stg.setScene(sce);
+            stg.show();
+    
+        
+    }
+    
+    
     @FXML
     void chemicalbtnaction(ActionEvent event) throws IOException {
 
-//        pt4=new HingeTransition (chemicalbtn);
-//        pt4.setAutoReverse(true);
-//        pt4.setCycleCount(1);
-//        pt4.play();
+        pt4=new HingeTransition (chemicalbtn);
+        pt4.setAutoReverse(true);
+        pt4.setCycleCount(1);
+        pt4.play();
         
         
             Stage jk = (Stage)this.exitbtn.getScene().getWindow();
@@ -88,10 +101,10 @@ public class WelcomeController implements Initializable {
     void exitbtnaction(ActionEvent event) throws InterruptedException {
         
         
-//        pt5=new RollOutTransition (exitbtn);
-//        //pt5.setAutoReverse(true);
-//        pt5.setCycleCount(10);
-//        pt5.play();
+        pt5=new RollOutTransition (exitbtn);
+        //pt5.setAutoReverse(true);
+        pt5.setCycleCount(10);
+        pt5.play();
         
         pt4=new HingeTransition (exitbtn);
         //pt4.setAutoReverse(true);
@@ -110,10 +123,10 @@ public class WelcomeController implements Initializable {
     @FXML
     void laundrybtnaction(ActionEvent event) throws IOException {
         
-//        pt4=new HingeTransition (laundrybtn);
-//        //pt4.setAutoReverse(true);
-//        pt4.setCycleCount(10);
-//        pt4.play();
+        pt4=new HingeTransition (laundrybtn);
+        pt4.setAutoReverse(true);
+        pt4.setCycleCount(10);
+        pt4.play();
         
             Stage jk = (Stage)this.exitbtn.getScene().getWindow();
             jk.close();

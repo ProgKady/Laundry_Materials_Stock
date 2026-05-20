@@ -485,7 +485,7 @@ public static class ItemData {
             // Load SQLite driver
             Class.forName("org.sqlite.JDBC");
             // Connect to the database
-            try (Connection conn = DriverManager.getConnection("jdbc:sqlite:"+drib+":\\KADINIO\\DATABASES\\Chemicals\\Material\\Stock\\Database\\ChemicalMaterialStock.db");
+            try (Connection conn = DriverManager.getConnection("jdbc:sqlite:"+drib+":\\KADINIO\\DATABASES\\Chemicals\\Material\\Stock\\Database\\ChemicalMaterialStock.db");\
                  Statement stmt = conn.createStatement()) {
 
                 conn.setAutoCommit(false); // Disable auto-commit for batch updates
@@ -545,7 +545,7 @@ public static class ItemData {
             // Load SQLite driver
             Class.forName("org.sqlite.JDBC");
             // Connect to the database
-            try (Connection conn = DriverManager.getConnection("jdbc:sqlite:"+drib+":\\KADINIO\\DATABASES\\Chemicals\\Material\\Stock\\Database\\ChemicalMaterialStock.db");
+            try (Connection conn = DriverManager.getConnection("jdbc:sqlite:"+drib+":\\KADINIO\\DATABASES\\Chemicals\\Material\\Stock\\Database\\ChemicalMaterialStock.db");\
                  Statement stmt = conn.createStatement();
                  ResultSet rs = stmt.executeQuery("SELECT * FROM Purchasing")) {
 

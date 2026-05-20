@@ -8,6 +8,8 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.PrintWriter;
+import java.net.URLDecoder;
+import java.nio.charset.StandardCharsets;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
@@ -35,11 +37,15 @@ import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import org.controlsfx.control.Notifications;
 
+
 public class Main extends Application {
+    
+    public static String diro;
+    
    public void start(Stage stage) throws Exception {
       Parent root = (Parent)FXMLLoader.load(this.getClass().getResource("Welcome.fxml"));
       Scene scene = new Scene(root);
-      stage.setTitle("Welcome To T&C Laundry Stock Manager, By Kadysoft Ltd.");
+      stage.setTitle("Welcome To T&C Stock Manager, By Kadysoft Ltd.");
       stage.centerOnScreen();
       stage.setResizable(false);
       stage.centerOnScreen();
@@ -49,7 +55,8 @@ public class Main extends Application {
       
       
       
-       //////////////////////////Add All Codes Here////////////////////////////////////////////////////////////////////////////////////////////////////////
+      
+             //////////////////////////Add All Codes Here////////////////////////////////////////////////////////////////////////////////////////////////////////
     //Read first and compare then write
     Date currentDate = GregorianCalendar.getInstance().getTime();
     DateFormat df = DateFormat.getDateInstance();
@@ -58,8 +65,33 @@ public class Main extends Application {
     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
     String timeString = sdf.format(d);
     String value1 = timeString;
+    
+    
+      try {
+            String path = Main.class.getProtectionDomain()
+            .getCodeSource().getLocation().toURI().getPath();
 
+            String decodedPath = URLDecoder.decode(path, StandardCharsets.UTF_8.name());
+            File file = new File(decodedPath);
+            String dir = file.isFile() ? file.getParent() : file.getPath();
+
+            
+           diro=dir;
+
+            if (dir.length() > 2 && dir.charAt(1) == ':') {
+                String driveLetter = dir.substring(0, 2);
+                
+                
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    
+
+    //File ff=new File (diro+"\\lib\\java.cfg");
+    
     File ff=new File (System.getProperty("user.home")+"\\AppData\\Roaming\\.store_cfg");
+    
     
     if (ff.exists()) {
         //Read then compare if equals 30 or more show alert and exit, if less don't do anything.
@@ -72,6 +104,8 @@ public class Main extends Application {
       Duration diff = Duration.between(d1.atStartOfDay(), d2.atStartOfDay());
       long diffDays = diff.toDays();
       
+      //System.out.println(diffDays);
+      
       if (diffDays>=30) {
           //Show Alert to register or close.
           ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -80,23 +114,23 @@ public class Main extends Application {
           alert.setTitle("Session Expired");
           alert.setResizable(false);
           DialogPane dialogPaneef = alert.getDialogPane();
-      dialogPaneef.getStylesheets().add(
-      getClass().getResource("primer-dark.css").toExternalForm());
+          dialogPaneef.getStylesheets().add(
+        getClass().getResource("cupertino-light.css").toExternalForm());
           Label l1=new Label("Sorry, your expiration date has been ended.");
           l1.setEffect(new DropShadow());
-          l1.setStyle("-fx-background-color:white;-fx-font-weight:bold;-fx-font-size:15;-fx-background-radius:3em;");
+          //l1.setStyle("-fx-background-color:white;-fx-font-weight:bold;-fx-font-size:15;-fx-background-radius:3em;");
           
-          Label l2=new Label("Please, click register to enter the serial key to start another period.");
+          Label l2=new Label("Please, register to continue.");
           l2.setEffect(new DropShadow());
-          l2.setStyle("-fx-background-color:white;-fx-font-weight:bold;-fx-font-size:15;-fx-background-radius:3em;");
+          //l2.setStyle("-fx-background-color:white;-fx-font-weight:bold;-fx-font-size:15;-fx-background-radius:3em;");
           
           Label l3=new Label("Or click 'OK' or 'EXIT' to exit and cancel the operation.");
           l3.setEffect(new DropShadow());
-          l3.setStyle("-fx-background-color:white;-fx-font-weight:bold;-fx-font-size:15;-fx-background-radius:3em;");
+          //l3.setStyle("-fx-background-color:white;-fx-font-weight:bold;-fx-font-size:15;-fx-background-radius:3em;");
           
           Hyperlink hy=new Hyperlink ("Register");
           hy.setEffect(new DropShadow());
-          hy.setStyle("-fx-background-color:lightblue;-fx-font-weight:bold;-fx-font-size:12;-fx-background-radius:3em;");
+          //hy.setStyle("-fx-background-color:lightblue;-fx-font-weight:bold;-fx-font-size:12;-fx-background-radius:3em;");
          
           JFXPasswordField jfx=new JFXPasswordField ();
           jfx.setAlignment(Pos.CENTER);
@@ -107,7 +141,7 @@ public class Main extends Application {
           jfx.setEffect(new DropShadow());
           
           VBox pane=new VBox();
-          pane.getChildren().addAll(l1,l2,l3,hy,jfx);
+          pane.getChildren().addAll(l1,l2,l3);
           pane.setSpacing(20);
           
           
@@ -120,35 +154,9 @@ public class Main extends Application {
       } else if (option.get() == ButtonType.OK) {
       ///////////////////////////
       
-      String textt=jfx.getText();
-    
-          if (textt.equals("WE LOVE KADYSOFT")) {
-             //Show noti and change date in file. 
-              
-             ff.createNewFile();
-             PrintWriter pw=new PrintWriter (new FileWriter (ff));
-             pw.print(value1);
-             pw.close();
-             
-             Notifications noti = Notifications.create();
-             noti.title("Congratulations!");
-             noti.text("Congratulations!, you have started a new period\nEnjoy using our software.\n\n\nPowered By Kadysoft Ltd, Ahmed Elkady - CEO.");
-             noti.position(Pos.CENTER);
-             noti.hideAfter(javafx.util.Duration.minutes(1));
-             noti.showInformation();
-             
-             alert.close();
-          }
-          
-          else {
-          Notifications noti = Notifications.create();
-          noti.title("Wrong Serial Key!");
-          noti.text("Sorry, I will close.");
-          noti.position(Pos.CENTER);
-          noti.showInformation();
-          alert.close();
-          stage.close();
-          }  
+      alert.close();
+      stage.close();
+      
       ///////////////////////////
       }
       else if (option.get() == ButtonType.CANCEL) {
@@ -181,6 +189,140 @@ public class Main extends Application {
       
       /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
       
+      
+      
+//       //////////////////////////Add All Codes Here////////////////////////////////////////////////////////////////////////////////////////////////////////
+//    //Read first and compare then write
+//    Date currentDate = GregorianCalendar.getInstance().getTime();
+//    DateFormat df = DateFormat.getDateInstance();
+//    String dateString = df.format(currentDate);
+//    Date d = new Date();
+//    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+//    String timeString = sdf.format(d);
+//    String value1 = timeString;
+//
+//    File ff=new File (System.getProperty("user.home")+"\\AppData\\Roaming\\.store_cfg");
+//    
+//    if (ff.exists()) {
+//        //Read then compare if equals 30 or more show alert and exit, if less don't do anything.
+//      BufferedReader buff=new BufferedReader(new FileReader(ff));
+//      String line;
+//      line=buff.readLine();
+//      buff.close();
+//      LocalDate d1 = LocalDate.parse(line, DateTimeFormatter.ISO_LOCAL_DATE);
+//      LocalDate d2 = LocalDate.parse(value1, DateTimeFormatter.ISO_LOCAL_DATE);
+//      Duration diff = Duration.between(d1.atStartOfDay(), d2.atStartOfDay());
+//      long diffDays = diff.toDays();
+//      
+//      if (diffDays>=30) {
+//          //Show Alert to register or close.
+//          ///////////////////////////////////////////////////////////////////////////////////////////////////
+//          
+//          Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+//          alert.setTitle("Session Expired");
+//          alert.setResizable(false);
+//          DialogPane dialogPaneef = alert.getDialogPane();
+//      dialogPaneef.getStylesheets().add(
+//      getClass().getResource("primer-dark.css").toExternalForm());
+//          Label l1=new Label("Sorry, your expiration date has been ended.");
+//          l1.setEffect(new DropShadow());
+//          l1.setStyle("-fx-background-color:white;-fx-font-weight:bold;-fx-font-size:15;-fx-background-radius:3em;");
+//          
+//          Label l2=new Label("Please, click register to enter the serial key to start another period.");
+//          l2.setEffect(new DropShadow());
+//          l2.setStyle("-fx-background-color:white;-fx-font-weight:bold;-fx-font-size:15;-fx-background-radius:3em;");
+//          
+//          Label l3=new Label("Or click 'OK' or 'EXIT' to exit and cancel the operation.");
+//          l3.setEffect(new DropShadow());
+//          l3.setStyle("-fx-background-color:white;-fx-font-weight:bold;-fx-font-size:15;-fx-background-radius:3em;");
+//          
+//          Hyperlink hy=new Hyperlink ("Register");
+//          hy.setEffect(new DropShadow());
+//          hy.setStyle("-fx-background-color:lightblue;-fx-font-weight:bold;-fx-font-size:12;-fx-background-radius:3em;");
+//         
+//          JFXPasswordField jfx=new JFXPasswordField ();
+//          jfx.setAlignment(Pos.CENTER);
+//          jfx.setLabelFloat(true);
+//          jfx.setPromptText("Enter Serial Key!!!.");
+//          jfx.setMinSize(300, 30);
+//          jfx.setStyle("-fx-background-color:lightblue;-fx-font-weight:bold;-fx-font-size:15;");
+//          jfx.setEffect(new DropShadow());
+//          
+//          VBox pane=new VBox();
+//          pane.getChildren().addAll(l1,l2,l3,hy,jfx);
+//          pane.setSpacing(20);
+//          
+//          
+//          alert.setGraphic(pane);
+//          
+//          Optional<ButtonType> option = alert.showAndWait();
+//
+//      if (option.get() == null) {
+//         stage.close();
+//      } else if (option.get() == ButtonType.OK) {
+//      ///////////////////////////
+//      
+//      String textt=jfx.getText();
+//    
+//          if (textt.equals("WE LOVE KADYSOFT")) {
+//             //Show noti and change date in file. 
+//              
+//             ff.createNewFile();
+//             PrintWriter pw=new PrintWriter (new FileWriter (ff));
+//             pw.print(value1);
+//             pw.close();
+//             
+//             Notifications noti = Notifications.create();
+//             noti.title("Congratulations!");
+//             noti.text("Congratulations!, you have started a new period\nEnjoy using our software.\n\n\nPowered By Kadysoft Ltd, Ahmed Elkady - CEO.");
+//             noti.position(Pos.CENTER);
+//             noti.hideAfter(javafx.util.Duration.minutes(1));
+//             noti.showInformation();
+//             
+//             alert.close();
+//          }
+//          
+//          else {
+//          Notifications noti = Notifications.create();
+//          noti.title("Wrong Serial Key!");
+//          noti.text("Sorry, I will close.");
+//          noti.position(Pos.CENTER);
+//          noti.showInformation();
+//          alert.close();
+//          stage.close();
+//          }  
+//      ///////////////////////////
+//      }
+//      else if (option.get() == ButtonType.CANCEL) {
+//      Notifications noti = Notifications.create();
+//      noti.title("Cancel!");
+//      noti.text("Operation Cancelled, nothing will happen.");
+//      noti.position(Pos.CENTER);
+//      noti.showInformation();
+//      stage.close();
+//      }
+//      else {
+//         
+//      }
+//         
+//          ///////////////////////////////////////////////////////////////////////////////////////////////////
+//          
+//      }
+//      
+//      else {
+//          // Do Nothing
+//      }
+//    }
+//    else {
+//        //Write date for the first time.
+//        ff.createNewFile();
+//        PrintWriter pw=new PrintWriter (new FileWriter (ff));
+//        pw.print("2023-10-20");
+//        pw.close();
+//    }
+//      
+//      /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//      
       
       
       

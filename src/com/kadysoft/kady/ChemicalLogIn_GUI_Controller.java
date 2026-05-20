@@ -223,7 +223,7 @@ public class ChemicalLogIn_GUI_Controller implements Initializable {
         alo.setContentText(e.toString());
         DialogPane dialogPane = alo.getDialogPane();
         dialogPane.getStylesheets().add(
-      getClass().getResource("primer-dark.css").toExternalForm());
+      getClass().getResource("cupertino-light.css").toExternalForm());
         alo.showAndWait();
         } finally {
           try {

@@ -86,6 +86,7 @@ import javafx.scene.effect.DropShadow;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -116,7 +117,7 @@ public class AMR_ChemicalMainWindowController implements Initializable {
     PreparedStatement pstt = null;
     
     
-    
+    public static String MachineID;
     
     
     @FXML
@@ -150,7 +151,7 @@ public class AMR_ChemicalMainWindowController implements Initializable {
     private TableView<String> temptable,temptable1;
 
     @FXML
-    private Pane newitempane;
+    private HBox newitempane;
 
     @FXML
     private JFXTextField newitemdate,oldcon,patchqval;
@@ -183,7 +184,7 @@ public class AMR_ChemicalMainWindowController implements Initializable {
     private JFXCheckBox addtoindexcheckbox;
 
     @FXML
-    private Pane iteminputpane;
+    private HBox iteminputpane;
 
     @FXML
     private JFXTextField inputdate;
@@ -213,7 +214,7 @@ public class AMR_ChemicalMainWindowController implements Initializable {
     private JFXButton outputbtn;
 
     @FXML
-    private Pane updateanddeletepane;
+    private HBox updateanddeletepane;
 
     @FXML
     private JFXTextField rownumber;
@@ -310,7 +311,7 @@ public class AMR_ChemicalMainWindowController implements Initializable {
     yt.setContentText("");
     DialogPane dialogPaneef = yt.getDialogPane();
     dialogPaneef.getStylesheets().add(
-    getClass().getResource("primer-dark.css").toExternalForm());
+    getClass().getResource("cupertino-light.css").toExternalForm());
     yt.setGraphic(gggd);
     yt.showAndWait();
     String monthhhh=klr1.getText();
@@ -328,7 +329,7 @@ public class AMR_ChemicalMainWindowController implements Initializable {
     ytt.setContentText("We Found empty data, please enter some data to can continue.");
     DialogPane dialogPaneeft = yt.getDialogPane();
     dialogPaneeft.getStylesheets().add(
-    getClass().getResource("primer-dark.css").toExternalForm());
+    getClass().getResource("cupertino-light.css").toExternalForm());
     ytt.showAndWait();
         
         
@@ -409,7 +410,7 @@ public class AMR_ChemicalMainWindowController implements Initializable {
       Element.ALIGN_CENTER, new Phrase("T&C Garments By Kadysoft Ltd.", FontFactory.getFont("Times-Bold", 11.0F, 1)),
       297.5f, 421, myWriter.getPageNumber() % 2 == 1 ? 45 : -45);
       
-      Image image = Image.getInstance(""+drib+":\\KADINIO\\DATABASES\\Chemicals\\Material\\Stock\\Contents\\tandc.png");
+      Image image = Image.getInstance(""+drib+":\\KADINIO\\DATABASES\\Chemicals\\Material\\Stock\\Contents\\tandc.png");/
       myDocument.add((com.itextpdf.text.Element)image);
       myDocument.add((com.itextpdf.text.Element)new Paragraph("Full Chemical Report", FontFactory.getFont("Times-Bold", 14.0F, 1)));
       myDocument.add((com.itextpdf.text.Element)new Paragraph(" "));
@@ -534,7 +535,7 @@ public class AMR_ChemicalMainWindowController implements Initializable {
       alooo.setResizable(true);
       DialogPane dialogPaneefu = alooo.getDialogPane();
       dialogPaneefu.getStylesheets().add(
-      getClass().getResource("primer-dark.css").toExternalForm());
+      getClass().getResource("cupertino-light.css").toExternalForm());
       alooo.showAndWait();
     } 
     
@@ -639,11 +640,11 @@ public class AMR_ChemicalMainWindowController implements Initializable {
         alert.setGraphic(fssg);
         DialogPane dialogPaneef = alert.getDialogPane();
         dialogPaneef.getStylesheets().add(
-      getClass().getResource("primer-dark.css").toExternalForm());
+      getClass().getResource("cupertino-light.css").toExternalForm());
         Optional<ButtonType> option = alert.showAndWait();
         
         String sdfdss=newitemmaterialname.getText();
-        String pathhhd=""+drib+":\\KADINIO\\DATABASES\\Chemicals\\Material\\Stock\\Contents\\Critical.kady";
+        String pathhhd=""+drib+":\\KADINIO\\DATABASES\\Chemicals\\Material\\Stock\\Contents\\Critical.kady";/
         String wr=fssg.getText();
         String allll=sdfdss+"="+wr;
         
@@ -720,22 +721,6 @@ public class AMR_ChemicalMainWindowController implements Initializable {
         
     }
     
-     @FXML
-    void matdisaction (ActionEvent evt) throws IOException {
-        
-        
-      Stage stg = new Stage();
-      Parent root = (Parent)FXMLLoader.load(this.getClass().getResource("Materials_Disbursed.fxml"));
-      Scene sce = new Scene(root);
-      stg.setTitle("Materials Disbursed");
-      stg.centerOnScreen();
-      stg.setResizable(false);
-      stg.setScene(sce);
-      stg.show(); 
-        
-        
-        
-    }
     
     
     
@@ -748,9 +733,10 @@ public class AMR_ChemicalMainWindowController implements Initializable {
             Scene sce = new Scene(root);
             stg.setTitle("Workers Materials.");
             stg.centerOnScreen();
-            stg.setResizable(false);
+            stg.setResizable(true);
             stg.centerOnScreen();
             stg.setScene(sce);
+            stg.setMaximized(true);
             stg.centerOnScreen();
             stg.show();
        
@@ -893,13 +879,16 @@ public class AMR_ChemicalMainWindowController implements Initializable {
       alert.setGraphic(code);
       DialogPane dialogPaneef = alert.getDialogPane();
       dialogPaneef.getStylesheets().add(
-      getClass().getResource("primer-dark.css").toExternalForm());
+      getClass().getResource("cupertino-light.css").toExternalForm());
       Optional<ButtonType> option = alert.showAndWait();
       
       if (option.get() == null) {
          
       } else if (option.get() == ButtonType.OK) {
           //IF  OK.///////////////////////////////////////////////////////////
+          
+          try {
+          
           String command="wmic bios get serialnumber";
               StringBuffer output=new StringBuffer();
               try {
@@ -909,7 +898,22 @@ public class AMR_ChemicalMainWindowController implements Initializable {
                    while ((linee=sNumReader.readLine())!=null) {
                        output.append(linee+"\n");
                    }
-                   String MachineID=output.toString().substring(output.indexOf("\n"),output.length()).trim();
+                   MachineID=output.toString().substring(output.indexOf("\n"),output.length()).trim();
+                   
+              } catch (Exception g) {
+                  
+              String commandp="powershell Get-CimInstance -ClassName Win32_BIOS | Select-Object SerialNumber";
+              StringBuffer outputp=new StringBuffer();
+                  Process SerNumProcessp=Runtime.getRuntime().exec(commandp);
+                   BufferedReader  sNumReaderp=new BufferedReader(new InputStreamReader(SerNumProcessp.getInputStream()));
+                   String lineep="";
+                   while ((lineep=sNumReaderp.readLine())!=null) {
+                   outputp.append(lineep+"\n");
+                   }
+                   MachineID=outputp.toString().substring(outputp.indexOf("\n"),outputp.length()).trim().replace("SerialNumber","").replace("------------","").replace("\n","");
+                
+                  
+              }
                    
                    if (code.getText().equals(MachineID)) {
                        Notifications noti = Notifications.create();
@@ -1040,7 +1044,7 @@ public class AMR_ChemicalMainWindowController implements Initializable {
       alert.setResizable(false);
       DialogPane dialogPane = alert.getDialogPane();
       dialogPane.getStylesheets().add(
-    getClass().getResource("cupertino-dark.css").toExternalForm());
+    getClass().getResource("cupertino-light.css").toExternalForm());
       alert.showAndWait();
         
         
@@ -1063,7 +1067,7 @@ public class AMR_ChemicalMainWindowController implements Initializable {
       alert.setResizable(false);
       DialogPane dialogPane = alert.getDialogPane();
       dialogPane.getStylesheets().add(
-    getClass().getResource("cupertino-dark.css").toExternalForm());
+    getClass().getResource("cupertino-light.css").toExternalForm());
       alert.showAndWait();
         
         
@@ -1599,7 +1603,7 @@ public class AMR_ChemicalMainWindowController implements Initializable {
       alooo.setResizable(true);
       DialogPane dialogPaneef = alooo.getDialogPane();
       dialogPaneef.getStylesheets().add(
-      getClass().getResource("primer-dark.css").toExternalForm());
+      getClass().getResource("cupertino-light.css").toExternalForm());
       alooo.showAndWait();
     } catch (Exception e) {
     //  JOptionPane.showMessageDialog(null, e);
@@ -2106,7 +2110,7 @@ public class AMR_ChemicalMainWindowController implements Initializable {
       alert.setHeaderText("Are you sure want to Delete this Record ?");
       DialogPane dialogPaneef = alert.getDialogPane();
       dialogPaneef.getStylesheets().add(
-      getClass().getResource("primer-dark.css").toExternalForm());
+      getClass().getResource("cupertino-light.css").toExternalForm());
 
       // option != null.
       Optional<ButtonType> option = alert.showAndWait();
@@ -2821,7 +2825,7 @@ public class AMR_ChemicalMainWindowController implements Initializable {
       
          ////////////////////////////////////////////////////////////////////////////////////Write in file/////////////////////////////////////////////////////////////////////////////////////
             
-            PrintWriter pwc=new PrintWriter(new FileWriter (""+drib+":\\KADINIO\\DATABASES\\Chemicals\\Material\\Stock\\Contents\\Undo.kady"));
+            PrintWriter pwc=new PrintWriter(new FileWriter (""+drib+":\\KADINIO\\DATABASES\\Chemicals\\Material\\Stock\\Contents\\Undo.kady"));/
             pwc.println("Date="+inputdate.getText());
             pwc.println("Code="+inputcode.getText());
             pwc.println("Chemical_Name="+inputmaterialname.getText());
@@ -3020,7 +3024,7 @@ public class AMR_ChemicalMainWindowController implements Initializable {
         vn.setAlignment(Pos.CENTER);
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////
         
-      BufferedReader buf = new BufferedReader(new FileReader(""+drib+":\\KADINIO\\DATABASES\\Chemicals\\Material\\Stock\\Contents\\Undo.kady"));
+      BufferedReader buf = new BufferedReader(new FileReader(""+drib+":\\KADINIO\\DATABASES\\Chemicals\\Material\\Stock\\Contents\\Undo.kady"));/
     
           t1.setText(buf.readLine().replace("Date=", ""));
           
@@ -3055,7 +3059,7 @@ public class AMR_ChemicalMainWindowController implements Initializable {
         am.setGraphic(vn);
         DialogPane dialogPaneef = am.getDialogPane();
       dialogPaneef.getStylesheets().add(
-      getClass().getResource("primer-dark.css").toExternalForm());
+      getClass().getResource("cupertino-light.css").toExternalForm());
         am.showAndWait();
       ///////////////////////////Delete Consumption/////////////////////////////////////     
       String sql = "delete from Consumption where Date=? and Chemical_Name=? and Status=? and Quantity=? ";
@@ -3392,7 +3396,7 @@ public class AMR_ChemicalMainWindowController implements Initializable {
     TextField filter = this.sectionbox.getEditor();
     String filtertext = filter.getText();
     try {
-      BufferedReader buf = new BufferedReader(new FileReader(""+drib+":\\KADINIO\\DATABASES\\Chemicals\\Material\\Stock\\Contents\\Sections.kady"));
+      BufferedReader buf = new BufferedReader(new FileReader(""+drib+":\\KADINIO\\DATABASES\\Chemicals\\Material\\Stock\\Contents\\Sections.kady"));/
       String line;
       while ((line = buf.readLine()) != null) {
         String cap = filtertext.toUpperCase();
@@ -3675,7 +3679,7 @@ public class AMR_ChemicalMainWindowController implements Initializable {
      alert.setResizable(false);
      DialogPane dialogPane = alert.getDialogPane();
      dialogPane.getStylesheets().add(
-   getClass().getResource("cupertino-dark.css").toExternalForm());
+   getClass().getResource("cupertino-light.css").toExternalForm());
      alert.showAndWait(); 
      Stage jk = (Stage)this.newitemcode.getScene().getWindow();
      jk.close();
@@ -3723,10 +3727,10 @@ public class AMR_ChemicalMainWindowController implements Initializable {
      alert.setResizable(false);
      DialogPane dialogPane = alert.getDialogPane();
      dialogPane.getStylesheets().add(
-   getClass().getResource("cupertino-dark.css").toExternalForm());
+   getClass().getResource("cupertino-light.css").toExternalForm());
      alert.showAndWait(); 
              
-            BufferedReader bufy = new BufferedReader(new FileReader(""+drib+":\\KADINIO\\DATABASES\\Chemicals\\Material\\Stock\\Contents\\Critical.kady"));
+            BufferedReader bufy = new BufferedReader(new FileReader(""+drib+":\\KADINIO\\DATABASES\\Chemicals\\Material\\Stock\\Contents\\Critical.kady"));/
             String line; 
             //String sql0 = "select Chemical_Name, (SUM)Stock from Stock GROUP BY Chemical_Name ORDER BY SUM(Stock) desc";
             String sqlu0 = "select Chemical_Name, Stock from Stock";
@@ -3810,7 +3814,7 @@ public class AMR_ChemicalMainWindowController implements Initializable {
                alert.setHeight(750);
                DialogPane dialogPaneef = alert.getDialogPane();
                dialogPaneef.getStylesheets().add(
-             getClass().getResource("primer-dark.css").toExternalForm());
+             getClass().getResource("cupertino-light.css").toExternalForm());
                ((Button) alert.getDialogPane().lookupButton(ButtonType.OK)).setText("Create PR");
                ((Button) alert.getDialogPane().lookupButton(ButtonType.CANCEL)).setText("Ignore That");
                Optional<ButtonType> result = alert.showAndWait();
@@ -3842,7 +3846,7 @@ public class AMR_ChemicalMainWindowController implements Initializable {
       alert.setResizable(false);
       DialogPane dialogPane = alert.getDialogPane();
       dialogPane.getStylesheets().add(
-    getClass().getResource("cupertino-dark.css").toExternalForm());
+    getClass().getResource("cupertino-light.css").toExternalForm());
       alert.showAndWait();
         
         }

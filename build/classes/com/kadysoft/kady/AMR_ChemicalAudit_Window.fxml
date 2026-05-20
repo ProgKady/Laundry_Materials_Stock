@@ -2,63 +2,57 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXTextField?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.Spinner?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<GridPane id="AnchorPane" alignment="CENTER" gridLinesVisible="true" prefHeight="704.0" prefWidth="1312.0" stylesheets="@primer-dark.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.kadysoft.kady.AMR_ChemicalAudit_WindowController">
-   <children>
-      <BorderPane layoutX="2.0" prefHeight="707.0" prefWidth="1310.0" GridPane.rowIndex="1">
-         <center>
-            <Pane prefHeight="690.0" prefWidth="1310.0" BorderPane.alignment="CENTER">
-               <children>
-                  <TableView fx:id="datatable" layoutX="14.0" layoutY="14.0" onMouseClicked="#tableaction" prefHeight="547.0" prefWidth="1283.0" style="-fx-font-size: 12; -fx-font-weight: bold; -fx-text-alignment: center;" tableMenuButtonVisible="true" />
-                  <Pane layoutX="14.0" layoutY="574.0" prefHeight="89.0" prefWidth="1283.0">
-                     <children>
-                        <JFXTextField fx:id="rownumber" alignment="CENTER" editable="false" layoutX="187.0" layoutY="31.0" prefHeight="32.0" prefWidth="134.0" promptText="Row Number" visible="false" />
-                        <JFXTextField fx:id="columnname" alignment="CENTER" editable="false" layoutX="356.0" layoutY="31.0" prefHeight="32.0" prefWidth="196.0" promptText="Column Name" visible="false" />
-                        <JFXTextField fx:id="celldata" alignment="CENTER" layoutX="589.0" layoutY="31.0" prefHeight="32.0" prefWidth="270.0" promptText="Cell Data" visible="false" />
-                        <JFXButton fx:id="updatebtn" buttonType="RAISED" layoutX="895.0" layoutY="31.0" onAction="#updatebtnaction" style="-fx-background-color: #0d419d; -fx-background-radius: 3em; -fx-font-weight: bold;" text="Update" visible="false" />
-                     </children>
-                  </Pane>
-               </children>
-            </Pane>
-         </center>
-      </BorderPane>
-      <VBox alignment="TOP_CENTER" prefHeight="121.0" prefWidth="1310.0">
+
+<BorderPane prefHeight="747.0" prefWidth="1278.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.kadysoft.kady.AMR_ChemicalAudit_WindowController">
+   <top>
+      <MenuBar style="-fx-font-weight: bold;" BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem fx:id="getallaudit" mnemonicParsing="false" onAction="#getallauditaction" text="Refresh Audit" />
+                  <MenuItem mnemonicParsing="false" text="Font Size">
+                     <graphic>
+                        <Spinner fx:id="fontsize" editable="true" onKeyReleased="#fontsizerelaction" onMouseClicked="#fontsizeaction" />
+                     </graphic>
+                  </MenuItem>
+                  <MenuItem fx:id="print" mnemonicParsing="false" onAction="#printaction" text="Print" />
+                  <MenuItem fx:id="exporttoexcel" mnemonicParsing="false" onAction="#exporttoexcelaction" text="Export To Excel" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
-            <MenuBar style="-fx-font-weight: bold;">
-              <menus>
-                <Menu mnemonicParsing="false" text="File">
-                  <items>
-                    <MenuItem fx:id="getallaudit" mnemonicParsing="false" onAction="#getallauditaction" text="Refresh Audit" />
-                        <MenuItem mnemonicParsing="false" text="Font Size">
-                           <graphic>
-                              <Spinner fx:id="fontsize" editable="true" onKeyReleased="#fontsizerelaction" onMouseClicked="#fontsizeaction" />
-                           </graphic>
-                        </MenuItem>
-                        <MenuItem fx:id="print" mnemonicParsing="false" onAction="#printaction" text="Print" />
-                        <MenuItem fx:id="exporttoexcel" mnemonicParsing="false" onAction="#exporttoexcelaction" text="Export To Excel" />
-                  </items>
-                </Menu>
-              </menus>
-            </MenuBar>
+            <TableView fx:id="datatable" onMouseClicked="#tableaction" prefHeight="860.0" prefWidth="1278.0" style="-fx-font-size: 12; -fx-font-weight: bold; -fx-text-alignment: center;" tableMenuButtonVisible="true" />
+            <HBox alignment="CENTER_LEFT" prefHeight="9.0" prefWidth="1278.0">
+               <children>
+                  <JFXTextField fx:id="rownumber" alignment="CENTER" editable="false" prefHeight="32.0" prefWidth="134.0" promptText="Row Number" visible="false" />
+                  <JFXTextField fx:id="columnname" alignment="CENTER" editable="false" prefHeight="32.0" prefWidth="196.0" promptText="Column Name" visible="false" />
+                  <JFXTextField fx:id="celldata" alignment="CENTER" prefHeight="32.0" prefWidth="270.0" promptText="Cell Data" visible="false" />
+                  <JFXButton fx:id="updatebtn" buttonType="RAISED" onAction="#updatebtnaction" style="-fx-background-color: #0d419d; -fx-background-radius: 3em; -fx-font-weight: bold;" text="Update" visible="false" />
+               </children>
+               <padding>
+                  <Insets left="15.0" />
+               </padding>
+            </HBox>
          </children>
       </VBox>
-   </children>
-   <columnConstraints>
-      <ColumnConstraints />
-   </columnConstraints>
-   <rowConstraints>
-      <RowConstraints maxHeight="223.0" minHeight="10.0" prefHeight="39.0" />
-      <RowConstraints maxHeight="685.0" minHeight="481.0" prefHeight="665.0" />
-   </rowConstraints>
-</GridPane>
+   </center>
+   <stylesheets>
+      <URL value="@cupertino-light.css" />
+      <URL value="@Styling.css" />
+   </stylesheets>
+</BorderPane>

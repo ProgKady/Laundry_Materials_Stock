@@ -41,7 +41,7 @@ public class Workers_MaterialsController implements Initializable {
     PreparedStatement pst=null;
     
     
-    public static int pboott,goggless,pflaskk,pbuckett,pcoveralll,gloves3mm,filter3mm,mask3mm,fabricglovess,uniformm;
+    public static int pboott,goggless,pflaskk,pbuckett,pcoveralll,gloves3mm,filter3mm,mask3mm,fabricglovess,sprayfullbodyy,uniformm;
     
     
     @FXML
@@ -72,7 +72,7 @@ public class Workers_MaterialsController implements Initializable {
     private JFXCheckBox gloves3m;
 
     @FXML
-    private JFXCheckBox filter3m;
+    private JFXCheckBox filter3m,sprayfullbody;
 
     @FXML
     private JFXCheckBox mask3m,uniform;
@@ -122,7 +122,7 @@ public class Workers_MaterialsController implements Initializable {
      
       ///////////////////////////////////////////////////////////////////////////////
       
-            String reg = "insert into Workers_Materials (Date,Code,Name,Plastic_Boot,Safety_Goggles,Flask_2L,Plastic_Bucket,Plastic_Coverall,Gloves_3M,Filter_3M,Mask_3M,Fabric_Gloves,Uniform) values (?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            String reg = "insert into Workers_Materials (Date,Code,Name,Plastic_Boot,Safety_Goggles,Flask_2L,Plastic_Bucket,Plastic_Coverall,Gloves_3M,Filter_3M,Mask_3M,Fabric_Gloves,Spray_Full_Body,Uniform) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
             pst = conn.prepareStatement(reg);
             
             pst.setString(1,newitemdatee);
@@ -138,7 +138,8 @@ public class Workers_MaterialsController implements Initializable {
             pst.setString(10,Integer.toString(filter3mm));
             pst.setString(11,Integer.toString(mask3mm));
             pst.setString(12,Integer.toString(fabricglovess));
-            pst.setString(13,Integer.toString(uniformm));
+            pst.setString(13,Integer.toString(sprayfullbodyy));
+            pst.setString(14,Integer.toString(uniformm));
             
             pst.execute();
            
@@ -315,6 +316,26 @@ public class Workers_MaterialsController implements Initializable {
         }
         
     }
+    
+    
+    @FXML
+    void sprayfullbodyaction(ActionEvent event) {
+
+         if (sprayfullbody.isSelected()==true) {
+            
+            sprayfullbodyy=1;
+            
+        }
+        
+        else {
+            
+            sprayfullbodyy=0;
+            
+        }
+        
+    }
+    
+    
 
     @FXML
     void mask3maction(ActionEvent event) {
